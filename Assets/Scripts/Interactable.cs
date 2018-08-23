@@ -30,33 +30,30 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         SeekPlayer();
-        agent.SetDestination(target.position);
-        if(Input.GetKeyDown(KeyCode.E))
+    }
+
+    void SeekPlayer()
+    {
+        if(seeking)
         {
-            seeking = true;
+            agent.SetDestination(target.position);
+            target = GameObject.Find("Player").GetComponent<Transform>();
+            target = target.transform;
+            timer += Time.deltaTime;
+            agent.speed = burstSpeed;
+            if (timer > SeekLength)
+            {
+                seeking = false;
+                timer = 0;
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.tag == "Player")
-       {
-          SceneManager.LoadScene("Prototype");
-       }
-    }
-    void SeekPlayer()
-    {
-        if(seeking)
+        if (collision.gameObject.tag == "Player")
         {
-            target = GameObject.Find("Player").GetComponent<Transform>();
-            timer += Time.deltaTime;
-            agent.speed = burstSpeed;
-            if (timer > SeekLength)
-            {
-                target = null;
-                seeking = false;
-                timer = 0;
-            }
+            SceneManager.LoadScene("Prototype");
         }
     }
 }
