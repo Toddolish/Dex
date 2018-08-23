@@ -1,22 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class Interactable : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    Rigidbody myrb;
+    Rigidbody rb;
     public float burstSpeed;
+    public float forceSpeed;
     public float rotateSpeed;
     public Transform target;
-
-    //suck
-    //once object seeking is true
-    //object will move quickly towards player target with a timer of 1 sec
-    //then it will loose target but keep moving forward
-    //and steering speed will be 0
+    Weapon wep;
 
     public bool seeking;
     float timer;
@@ -24,10 +18,11 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        myrb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        wep = GameObject.Find("Lazer").GetComponent<Weapon>();
     }
     
-    void Update()
+    void FixedUpdate()
     {
         SeekPlayer();
     }
@@ -36,11 +31,10 @@ public class Interactable : MonoBehaviour
     {
         if(seeking)
         {
-            agent.SetDestination(target.position);
-            target = GameObject.Find("Player").GetComponent<Transform>();
+            transform.LookAt(target);
+            rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
             target = target.transform;
             timer += Time.deltaTime;
-            agent.speed = burstSpeed;
             if (timer > SeekLength)
             {
                 seeking = false;

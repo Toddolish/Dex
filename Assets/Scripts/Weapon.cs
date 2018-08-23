@@ -1,51 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
 
     Interactable enemyInteract;
+    public Transform Trans;
     public bool inside;
+    public GameObject movableTarget;
+
+    //timer
+    float timer;
+    public Text coolingText;
+
 	void Start ()
     {
-        enemyInteract = GameObject.Find("DangerBox").GetComponent<Interactable>();
+        enemyInteract = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Interactable>();
+        Trans = GameObject.Find("trans").GetComponent<Transform>();
+        coolingText = GameObject.Find("Timer").GetComponent<Text>();
     }
 	
 	void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        coolingText.text = timer.ToString("F1");
+        timer -= Time.deltaTime;
+        if(timer < 0)
         {
-            inside = true;
+            timer = 0;
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (timer < 1)
         {
-            inside = false;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                inside = true;
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                inside = false;
+                timer = 2;
+            }
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy" && inside)
         {
-               Debug.Log("work");
-               enemyInteract.seeking = true;
+            enemyInteract.seeking = true;
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Enemy" && inside)
         {
-            Debug.Log("work");
             enemyInteract.seeking = true;
         }
     }
-    /*private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            inside = false;
-            // Debug.Log("work");
-            //enemyInteract.seeking = true;
-        }
-    }*/
 }
