@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,9 +192,10 @@ GameObject:
   - component: {fileID: 532491560}
   - component: {fileID: 532491559}
   - component: {fileID: 532491564}
+  - component: {fileID: 532491565}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: OBJECT
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,10 +293,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f88ff7b8f801e4983e8db7d141366b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  burstForce: 10
+  agent: {fileID: 532491565}
+  burstSpeed: 8
   rotateSpeed: 10
   target: {fileID: 1493257233}
+  seeking: 0
+  SeekLength: 1
+--- !u!195 &532491565
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 532491558}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.49999997
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.99999994
+  m_BaseOffset: 0.49999997
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +426,7 @@ GameObject:
   - component: {fileID: 804978844}
   m_Layer: 0
   m_Name: UpperBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -533,7 +557,7 @@ GameObject:
   - component: {fileID: 1493257235}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,7 +642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab7c49d59b9396438073dcca65679b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 0.1
   movementSpeed: 0.1
+  dashSpeed: 0.4
+  dashDistance: 0.2
+  dashing: 0
+  timer: 0
 --- !u!54 &1493257235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -634,6 +663,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1001 &1592300842
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122140790819074, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dd1dc83d6125024c834c56a353c7109, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1910770307
 GameObject:
   m_ObjectHideFlags: 0

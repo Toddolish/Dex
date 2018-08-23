@@ -2,20 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    [Header("VARIABLES")]
-    public float movementSpeed;
-	void Start ()
+    public class PlayerMovement : MonoBehaviour
     {
+        [Header("SPEED")]
+        public float originalSpeed;
+        public float movementSpeed;
+        public float dashSpeed;
 
-    }
-	
-	void Update ()
-    {
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
-        this.gameObject.transform.Translate(hor * movementSpeed, 0, ver * movementSpeed);
+        [Header("DASHING")]
+        [Range(0.1f,2)]
+        public float dashDistance;
+        public bool dashing;
+        public float timer;
 
+        void Start()
+        {
+            originalSpeed = movementSpeed;
+        }
+
+        void Update()
+        {
+            float hor = Input.GetAxis("Horizontal");
+            float ver = Input.GetAxis("Vertical");
+            this.gameObject.transform.Translate(hor * originalSpeed, 0, ver * originalSpeed);
+            Dash();
+        }
+        void Dash()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                dashing = true;
+            }
+            if (dashing)
+            {
+                timer += Time.deltaTime;
+                originalSpeed = dashSpeed;
+                if (timer > dashDistance)
+                {
+                    originalSpeed = movementSpeed;
+                    dashing = false;
+                    timer = 0;
+                }
+            }
+        }
     }
 }
