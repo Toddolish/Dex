@@ -10,7 +10,6 @@ public class Interactable : MonoBehaviour
     public float forceSpeed;
     public float rotateSpeed;
     public Transform target;
-    Weapon wep;
 
     public bool seeking;
     float timer;
@@ -19,28 +18,18 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        wep = GameObject.Find("Lazer").GetComponent<Weapon>();
     }
     
     void FixedUpdate()
     {
-        SeekPlayer();
     }
 
-    void SeekPlayer()
+    public void SeekPlayer()
     {
-        if(seeking)
-        {
             transform.LookAt(target);
             rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
             target = target.transform;
             timer += Time.deltaTime;
-            if (timer > SeekLength)
-            {
-                seeking = false;
-                timer = 0;
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision)

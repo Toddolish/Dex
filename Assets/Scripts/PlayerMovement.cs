@@ -22,7 +22,7 @@ namespace Player
             originalSpeed = movementSpeed;
         }
 
-        void Update()
+        void FixedUpdate()
         {
             float hor = Input.GetAxis("Horizontal");
             float ver = Input.GetAxis("Vertical");
