@@ -19,7 +19,7 @@ public class Cannon : MonoBehaviour
 
     public float effectsDisplayTime = 0.2f;
     public bool startCooldown = false;
-    public Text coolingText;
+    //public Text coolingText;
 
     [Header("Materials")]
     public Material green;
@@ -31,12 +31,12 @@ public class Cannon : MonoBehaviour
     {
         shootableMask = LayerMask.GetMask("Shootable");
         gunLine = GetComponent<LineRenderer>();
-        coolingText = GameObject.Find("Timer").GetComponent<Text>();
+        //coolingText = GameObject.Find("Timer").GetComponent<Text>();
         enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Interactable>();
     }
     void Update ()
     {
-        coolingText.text = timer.ToString("F1");
+        //coolingText.text = timer.ToString("F1");
         if (startCooldown)
         {
             gunLine.material = green;

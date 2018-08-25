@@ -193,7 +193,7 @@ MonoBehaviour:
   explosionParticle: {fileID: 198644265131504928, guid: e65a05a830a070547bcf6cf5bb82ae31,
     type: 2}
   knockBackForce: 10
-  damageTaken: 40
+  damageTaken: 100
 --- !u!135 &135261008624466730
 SphereCollider:
   m_ObjectHideFlags: 1
