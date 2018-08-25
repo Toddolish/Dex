@@ -70,7 +70,10 @@ public class Cannon : MonoBehaviour
         print("shot");
         if(Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
-            enemyScript.SeekPlayer();
+            //if(shootHit.collider == "Enemy")
+            //{
+                enemyScript.SeekPlayer();
+            //}
         }
     }
 

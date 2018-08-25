@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -45,6 +46,13 @@ namespace Player
                     dashing = false;
                     timer = 0;
                 }
+            }
+        }
+        private void OnTriggerEnter(Collider collision)
+        {
+            if (collision.gameObject.tag == "Blade")
+            {
+                SceneManager.LoadScene("Prototype");
             }
         }
     }
