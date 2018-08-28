@@ -31,6 +31,10 @@ public class SwarmBot : MonoBehaviour
     public GameObject EnergyPickup;
     public GameObject HealthPickup;
 
+    public float minPickupCount;
+    public float maxPickupCount;
+    public float dropRate;
+
     void Start ()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
@@ -42,6 +46,7 @@ public class SwarmBot : MonoBehaviour
 	
 	void Update ()
     {
+        dropRate = Random.Range(minPickupCount, maxPickupCount);
         agent.SetDestination(target.position);
         transform.LookAt(target);
         Explode();
@@ -83,6 +88,8 @@ public class SwarmBot : MonoBehaviour
     {
         if (curHealth <= 0)
         {
+            HealthDrop();
+            EnergyDrop();
             curHealth = 0;
             Instantiate(explosionParticle, transform.position, transform.rotation);
             Destroy(this.gameObject);
@@ -98,5 +105,19 @@ public class SwarmBot : MonoBehaviour
     {
         //rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
         //modeHacked = true;
+    }
+    void HealthDrop()
+    {
+        if(dropRate > 11 && dropRate < 12)
+        {
+            Instantiate(HealthPickup, transform.position, transform.rotation);
+        }
+    }
+    void EnergyDrop()
+    {
+        if (dropRate > 20 && dropRate < 21)
+        {
+            Instantiate(EnergyPickup, transform.position, transform.rotation);
+        }
     }
 }

@@ -35,8 +35,6 @@ public class Cannon : MonoBehaviour
     {
         shootableMask = LayerMask.GetMask("Shootable");
         gunLine = GetComponent<LineRenderer>();
-        healthPickup = GameObject.FindGameObjectWithTag("Health").GetComponent<HealthPickup>();
-        energyPickup = GameObject.FindGameObjectWithTag("Energy").GetComponent<EnergyPickup>();
     }
     void Update ()
     {
@@ -86,11 +84,11 @@ public class Cannon : MonoBehaviour
                     {
                         gyroScript.SeekPlayer();
                     }
-                    if (shootHit.collider.tag == "Health")
+                    if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
                     {
                         healthPickup.SeekPlayer();
                     }
-                    if (shootHit.collider.tag == "Energy")
+                    if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
                     {
                         energyPickup.SeekPlayer();
                     }

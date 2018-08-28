@@ -26,8 +26,10 @@ public class GyroBot : MonoBehaviour
     public float maxHealth = 100;
 
     [Header("EXPLODE")]
-    public ParticleSystem gyroExplosion;
-    
+    public GameObject gyroExplosion;
+    ParticleSystem sparks;
+    ParticleSystem smoke;
+
 
     void Start()
     {
@@ -36,14 +38,25 @@ public class GyroBot : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
+        sparks = gameObject.transform.GetChild(2).GetComponentInChildren<ParticleSystem>();
+        smoke = gameObject.transform.GetChild(3).GetComponentInChildren<ParticleSystem>();
         eyeRend.material = neonOrange;
-
+        smoke.Stop();
+        sparks.Stop();
         //health
         curHealth = maxHealth;
     }
     private void Update()
     {
         Explode();
+        if(curHealth < 70)
+        {
+            sparks.Emit(2);
+        }
+        if(curHealth < 50)
+        {
+            smoke.Emit(1);
+        }
     }
     private void FixedUpdate()
     {
@@ -76,7 +89,7 @@ public class GyroBot : MonoBehaviour
     {
         if(collision.gameObject.tag == "wall" && modeHacked)
         {
-            curHealth = curHealth - 50;
+            curHealth = curHealth - 34;
         }
     }
 

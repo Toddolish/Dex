@@ -9,7 +9,7 @@ public class HealthPickup : MonoBehaviour
     public float forceSpeed;
     public Transform target;
     
-    public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
+    public bool modeHacked;
     float hackedTimer;
     public float hackedLength;
     bool seekTime;

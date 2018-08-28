@@ -197,6 +197,13 @@ MonoBehaviour:
   readyToAttack: 0
   timer: 0
   attackCooldownSpeed: 1
+  EnergyPickup: {fileID: 1099074704108590, guid: 7d6ad79297308e741b6d5f836a758507,
+    type: 2}
+  HealthPickup: {fileID: 1861341333886588, guid: 107970cbce334284b9e21d1379c8b373,
+    type: 2}
+  minPickupCount: 1
+  maxPickupCount: 30
+  dropRate: 0
 --- !u!135 &135261008624466730
 SphereCollider:
   m_ObjectHideFlags: 1
