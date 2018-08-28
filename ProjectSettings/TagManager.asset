@@ -7,6 +7,12 @@ TagManager:
   - OBJECT
   - Enemy
   - Blade
+  - SwarmBot
+  - Health
+  - wall
+  - Gyro
+  - Energy
+  - safe
   layers:
   - Default
   - TransparentFX

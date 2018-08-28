@@ -1,0 +1,96 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class GyroBot : MonoBehaviour
+{
+    Rigidbody rb;
+    public float forceSpeed;
+    public Transform target;
+
+    NavMeshAgent agent;
+    Transform gyroBlade;
+    public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
+    float hackedTimer;
+    public float hackedLength;
+    bool seekTime;
+
+    [Header("MATERIALS")]
+    MeshRenderer eyeRend;
+    public Material neonBlue;//eye colour when hacked by player
+    public Material neonOrange;//eye colour when hunting player
+
+    [Header("HEALTH")]
+    public float curHealth;
+    public float maxHealth = 100;
+
+    [Header("EXPLODE")]
+    public ParticleSystem gyroExplosion;
+    
+
+    void Start()
+    {
+        gyroBlade = gameObject.transform.GetChild(1).GetComponentInChildren<Transform>();
+        rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
+        target = GameObject.Find("Player").GetComponent<Transform>();
+        eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
+        eyeRend.material = neonOrange;
+
+        //health
+        curHealth = maxHealth;
+    }
+    private void Update()
+    {
+        Explode();
+    }
+    private void FixedUpdate()
+    {
+        agent.SetDestination(target.position);
+        if (seekTime)
+        {
+            rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
+            modeHacked = true;
+            seekTime = false;
+        }
+    }
+    void LateUpdate()
+    {
+        transform.LookAt(target);
+        if(modeHacked)
+        {
+            gyroBlade.tag = ("Blade");
+            eyeRend.material = neonBlue;
+            hackedTimer += Time.deltaTime;
+            if(hackedTimer > hackedLength)
+            {
+                gyroBlade.tag = ("safe");
+                modeHacked = false;
+                eyeRend.material = neonOrange;
+                hackedTimer = 0;
+            }
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "wall" && modeHacked)
+        {
+            curHealth = curHealth - 50;
+        }
+    }
+
+    public void SeekPlayer()
+    {
+        seekTime = true;
+    }
+    public void Explode()
+    {
+        if(curHealth <= 0)
+        {
+            curHealth = 0;
+            Instantiate(gyroExplosion, transform.position, transform.rotation);
+            this.gameObject.SetActive(false);
+        }
+    }
+}

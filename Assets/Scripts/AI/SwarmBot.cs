@@ -9,7 +9,9 @@ public class SwarmBot : MonoBehaviour
     public Transform target;
     NavMeshAgent agent;
     PlayerMovement playerMoveScript;
+    PlayerStats playerStats;
     Rigidbody rb;
+    GyroBot gyroScript;
 
     [Header("HEALTH")]
     public float curHealth;
@@ -20,8 +22,18 @@ public class SwarmBot : MonoBehaviour
     public float knockBackForce;
     public float damageTaken;
 
-	void Start ()
+    [Header("ATTACK")]
+    public bool readyToAttack = true;
+    [SerializeField]float timer;
+    public float attackCooldownSpeed;
+
+    [Header("DROPS")]
+    public GameObject EnergyPickup;
+    public GameObject HealthPickup;
+
+    void Start ()
     {
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
@@ -33,16 +45,38 @@ public class SwarmBot : MonoBehaviour
         agent.SetDestination(target.position);
         transform.LookAt(target);
         Explode();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Blade")
+
+        if(!readyToAttack)
         {
-            curHealth -= 100f;
+            timer += Time.deltaTime;
+            if(timer > attackCooldownSpeed)
+            {
+                readyToAttack = true;
+                timer = 0;
+            }
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Blade") //getting the gyro robot by a tag
+        {
+            //gyroScript = other.gameObject.GetComponent<GyroBot>();
+            //if (gyroScript.modeHacked)
+            //{
+                curHealth -= 100f;
+            //}
         }
         if (other.gameObject.tag == "Player")
         {
             TakeDamage();
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (readyToAttack && collision.gameObject.tag == "Player")
+        {
+            playerStats.DamageBySwarmBot();
+            readyToAttack = false;
         }
     }
     void Explode()
@@ -57,7 +91,12 @@ public class SwarmBot : MonoBehaviour
     public void TakeDamage()
     {
         curHealth = curHealth - damageTaken;
-        rb.AddForce(-transform.forward * knockBackForce, ForceMode.Impulse);
+        //rb.AddForce(-transform.forward * knockBackForce, ForceMode.Impulse);
         return;
+    }
+    public void SeekPlayer()
+    {
+        //rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
+        //modeHacked = true;
     }
 }

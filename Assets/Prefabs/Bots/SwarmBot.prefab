@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160889279389496}
   m_LocalRotation: {x: -0, y: -0.0044163363, z: -0, w: 0.9999903}
-  m_LocalPosition: {x: -10.4404545, y: -8.399971, z: 2.3358443}
+  m_LocalPosition: {x: -10.4404545, y: -7.53, z: 2.3358443}
   m_LocalScale: {x: 1, y: 0.70107, z: 1}
   m_Children:
   - {fileID: 4871718061461696}
@@ -194,6 +194,9 @@ MonoBehaviour:
     type: 2}
   knockBackForce: 10
   damageTaken: 100
+  readyToAttack: 0
+  timer: 0
+  attackCooldownSpeed: 1
 --- !u!135 &135261008624466730
 SphereCollider:
   m_ObjectHideFlags: 1

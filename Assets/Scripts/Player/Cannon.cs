@@ -19,24 +19,28 @@ public class Cannon : MonoBehaviour
 
     public float effectsDisplayTime = 0.2f;
     public bool startCooldown = false;
-    //public Text coolingText;
 
     [Header("Materials")]
     public Material green;
     public Material red;
 
-    Interactable enemyScript;
+    //bot
+    GyroBot gyroScript;
+
+    //pickup
+    HealthPickup healthPickup;
+    EnergyPickup energyPickup;
 
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
         gunLine = GetComponent<LineRenderer>();
-        //coolingText = GameObject.Find("Timer").GetComponent<Text>();
-        enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Interactable>();
+        healthPickup = GameObject.FindGameObjectWithTag("Health").GetComponent<HealthPickup>();
+        energyPickup = GameObject.FindGameObjectWithTag("Energy").GetComponent<EnergyPickup>();
     }
     void Update ()
     {
-        //coolingText.text = timer.ToString("F1");
+         
         if (startCooldown)
         {
             gunLine.material = green;
@@ -67,14 +71,33 @@ public class Cannon : MonoBehaviour
     }
     public void Shoot()
     {
-        print("shot");
-        if(Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position, transform.forward, 100f);
+
+        if (hits.Length > 0)
         {
-            //if(shootHit.collider == "Enemy")
-            //{
-                enemyScript.SeekPlayer();
-            //}
+            for (int i = 0; i < hits.Length; i++)
+            {
+                Debug.Log(hits[i].collider.name);
+                shootHit = hits[i];
+                if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+                {
+                    if (gyroScript = shootHit.collider.gameObject.GetComponent<GyroBot>())
+                    {
+                        gyroScript.SeekPlayer();
+                    }
+                    if (shootHit.collider.tag == "Health")
+                    {
+                        healthPickup.SeekPlayer();
+                    }
+                    if (shootHit.collider.tag == "Energy")
+                    {
+                        energyPickup.SeekPlayer();
+                    }
+                }
+            }
         }
+        
     }
 
 }
