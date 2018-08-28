@@ -25,11 +25,12 @@ namespace Player
         public float energyTimerSpeed;
         public float energyTimer;
         public bool waitForRegen;
-        Image xEnergyBar; 
+        Image xEnergyBar;
         Image energyBar;
 
         public bool invincible;
         PlayerMovement playerMoveScript;
+        MemeBot memeScript;
 
 
         void Start()
@@ -105,7 +106,7 @@ namespace Player
                 xEnergy += Time.deltaTime * energyRegenSpeed;
             }
             //once  energyTimer is less then 0 you can now start regeneration
-            if(energyTimer < 0)
+            if (energyTimer < 0)
             {
                 waitForRegen = false;
             }
@@ -129,7 +130,16 @@ namespace Player
             {
                 curHealth = curHealth - 100;
             }
+            if (player.gameObject.tag == "MemeBot")
+            {
+                curHealth -= 25;
+                curEnergy += 100;
+            }
+
+
+
         }
+
         /*private void OnCollisionEnter(Collision player)
         {
             if(player.gameObject.tag == "SwarmBot" && !invincible)
@@ -154,6 +164,12 @@ namespace Player
         public void DamageBySwarmBot()
         {
             curHealth -= 25;
+        }
+        public void Damage()
+        {
+            curHealth -= memeScript.damage;
+
+
         }
     }
 }
