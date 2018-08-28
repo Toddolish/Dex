@@ -12,6 +12,7 @@ public class SwarmBot : MonoBehaviour
     PlayerStats playerStats;
     Rigidbody rb;
     GyroBot gyroScript;
+    MemeBot memeScript;
 
     [Header("HEALTH")]
     public float curHealth;
