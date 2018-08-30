@@ -70,7 +70,7 @@ public class Cannon : MonoBehaviour
     public void Shoot()
     {
         RaycastHit[] hits;
-        hits = Physics.RaycastAll(transform.position, transform.forward, 100f);
+        hits = Physics.RaycastAll(transform.position, transform.forward, range, shootableMask);
 
         if (hits.Length > 0)
         {
@@ -78,8 +78,8 @@ public class Cannon : MonoBehaviour
             {
                 Debug.Log(hits[i].collider.name);
                 shootHit = hits[i];
-                if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-                {
+                //if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+                //{
                     if (gyroScript = shootHit.collider.gameObject.GetComponent<GyroBot>())
                     {
                         gyroScript.SeekPlayer();
@@ -92,7 +92,7 @@ public class Cannon : MonoBehaviour
                     {
                         energyPickup.SeekPlayer();
                     }
-                }
+                //}
             }
         }
         

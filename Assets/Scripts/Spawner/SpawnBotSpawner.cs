@@ -6,7 +6,6 @@ public class SpawnBotSpawner : MonoBehaviour
 {
     [Header("BOTS")]
     public GameObject SwarmBot;
-    public GameObject GyroBot;
 
     [Header("SPAWNERS")]
     public Transform spawner;
@@ -33,7 +32,6 @@ public class SpawnBotSpawner : MonoBehaviour
         }
         if (timer > 10 && timer < 11)
         {
-            SpawnGyroBot();
             spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         }
 
@@ -41,11 +39,6 @@ public class SpawnBotSpawner : MonoBehaviour
     void SpawnSwarmBot()
     {
         Instantiate(SwarmBot, spawner.position, spawner.rotation);
-        timer = 0;
-    }
-    void SpawnGyroBot()
-    {
-        Instantiate(GyroBot, spawner.position, spawner.rotation);
         timer = 0;
     }
 }

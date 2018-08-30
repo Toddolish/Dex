@@ -25,18 +25,18 @@ namespace Player
         public float energyTimerSpeed;
         public float energyTimer;
         public bool waitForRegen;
-        Image xEnergyBar;
+        Image xEnergyBar; 
         Image energyBar;
 
         public bool invincible;
         PlayerMovement playerMoveScript;
-        MemeBot memeScript;
+        GyroBot gyroBot;
 
 
         void Start()
         {
             playerMoveScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
-
+            gyroBot = GameObject.Find("Player").GetComponent<GyroBot>();
             #region Health
             xHealth = maxHealth;
             curHealth = maxHealth;
@@ -106,7 +106,7 @@ namespace Player
                 xEnergy += Time.deltaTime * energyRegenSpeed;
             }
             //once  energyTimer is less then 0 you can now start regeneration
-            if (energyTimer < 0)
+            if(energyTimer < 0)
             {
                 waitForRegen = false;
             }
@@ -126,28 +126,15 @@ namespace Player
         }
         private void OnTriggerEnter(Collider player)
         {
-            if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe")
+            if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
             {
-                curHealth = curHealth - 100;
+                if (!invincible)
+                {
+                    DamageByGyro();
+                }
+
             }
-            if (player.gameObject.tag == "MemeBot")
-            {
-                curHealth -= 25;
-                curEnergy += 100;
-            }
-
-
-
         }
-
-        /*private void OnCollisionEnter(Collision player)
-        {
-            if(player.gameObject.tag == "SwarmBot" && !invincible)
-            {
-                curHealth -= 25;
-            }
-            return;
-        }*/
         void GameOver()
         {
             if (curHealth <= 0)
@@ -165,11 +152,10 @@ namespace Player
         {
             curHealth -= 25;
         }
-        public void Damage()
+        public void DamageByGyro()
         {
-            curHealth -= memeScript.damage;
-
-
+            curHealth -= 50;
+            invincible = true;
         }
     }
 }

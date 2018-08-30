@@ -12,7 +12,6 @@ public class SwarmBot : MonoBehaviour
     PlayerStats playerStats;
     Rigidbody rb;
     GyroBot gyroScript;
-    MemeBot memeScript;
 
     [Header("HEALTH")]
     public float curHealth;
@@ -79,7 +78,7 @@ public class SwarmBot : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (readyToAttack && collision.gameObject.tag == "Player")
+        if (readyToAttack && collision.gameObject.tag == "Player" && playerStats.invincible == false)
         {
             playerStats.DamageBySwarmBot();
             readyToAttack = false;

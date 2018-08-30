@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33427243598409230}
   - component: {fileID: 23301028461357548}
   - component: {fileID: 135115821070771350}
-  - component: {fileID: 114021016600733734}
+  - component: {fileID: 114654428391604934}
   m_Layer: 0
   m_Name: Memebot
   m_TagString: MemeBot
@@ -378,7 +378,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1725413575666598}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114021016600733734
+--- !u!114 &114654428391604934
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468705710341538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4476313b0afa7944822be286a2381b0, type: 3}
+  m_Script: {fileID: 11500000, guid: fc8f879be094a50429bcbfbb760b7c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 20
@@ -398,10 +398,10 @@ MonoBehaviour:
   gyroDamage: 3
   damage: 25
   canAttack: 1
-  projectile: {fileID: 1308476917888542, guid: 0303c07b90fd2dc4b901ba1b08540068, type: 2}
+  projectile: {fileID: 0}
   target: {fileID: 0}
-  holder: {fileID: 4729366441539148}
-  particle: {fileID: 198277782848607538, guid: ad5dea07054f54343b65e9eba35e2612, type: 2}
+  holder: {fileID: 0}
+  particle: {fileID: 0}
 --- !u!135 &135115821070771350
 SphereCollider:
   m_ObjectHideFlags: 1

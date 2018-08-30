@@ -13,7 +13,6 @@ TagManager:
   - Gyro
   - Energy
   - safe
-  - MemeBot
   layers:
   - Default
   - TransparentFX

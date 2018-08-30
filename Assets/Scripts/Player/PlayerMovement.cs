@@ -19,6 +19,7 @@ namespace Player
         public float timer;
         CapsuleCollider col;
         public ParticleSystem dashParticle;
+        public float dashConsuption;// the amount of energy taken when is dashing
 
         [Header("COOLDOWN")]
         public float maxCooldown;
@@ -58,7 +59,7 @@ namespace Player
             if (dashing)
             {
                 col.isTrigger = true;
-                col.radius = 2.5f;//clean this witha float string please todd
+                col.radius = 0.5f; //clean this witha float string please todd
                 timer += Time.deltaTime;
                 originalSpeed = dashSpeed;
                 dashParticle.Emit(5);
@@ -80,7 +81,7 @@ namespace Player
                     timer = 0;
                     dashing = true;
                     startCooldown = true;
-                    mystats.curEnergy -= 17;
+                    mystats.curEnergy -= dashConsuption;
                     mystats.WaitForEnergyRegen();
                 }
              }

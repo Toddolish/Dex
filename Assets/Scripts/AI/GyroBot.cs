@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Player;
 
 public class GyroBot : MonoBehaviour
 {
     Rigidbody rb;
     public float forceSpeed;
     public Transform target;
+    PlayerStats playerStats;
 
     NavMeshAgent agent;
     Transform gyroBlade;
@@ -21,41 +23,32 @@ public class GyroBot : MonoBehaviour
     public Material neonBlue;//eye colour when hacked by player
     public Material neonOrange;//eye colour when hunting player
 
-    [Header("HEALTH")]
-    public float curHealth;
-    public float maxHealth = 100;
-
-    [Header("EXPLODE")]
-    public GameObject gyroExplosion;
-    ParticleSystem sparks;
-    ParticleSystem smoke;
+    [Header("ATTACK")]
+    public bool readyToAttack = true;
+    [SerializeField] float timer;
+    public float attackCooldownSpeed;
 
 
     void Start()
     {
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         gyroBlade = gameObject.transform.GetChild(1).GetComponentInChildren<Transform>();
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
-        sparks = gameObject.transform.GetChild(2).GetComponentInChildren<ParticleSystem>();
-        smoke = gameObject.transform.GetChild(3).GetComponentInChildren<ParticleSystem>();
         eyeRend.material = neonOrange;
-        smoke.Stop();
-        sparks.Stop();
-        //health
-        curHealth = maxHealth;
     }
     private void Update()
     {
-        Explode();
-        if(curHealth < 70)
+        if (!readyToAttack)
         {
-            sparks.Emit(2);
-        }
-        if(curHealth < 50)
-        {
-            smoke.Emit(1);
+            timer += Time.deltaTime;
+            if (timer > attackCooldownSpeed)
+            {
+                readyToAttack = true;
+                timer = 0;
+            }
         }
     }
     private void FixedUpdate()
@@ -85,25 +78,12 @@ public class GyroBot : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "wall" && modeHacked)
-        {
-            curHealth = curHealth - 34;
-        }
-    }
-
     public void SeekPlayer()
     {
         seekTime = true;
     }
-    public void Explode()
+    public void playerHasBeenHit()
     {
-        if(curHealth <= 0)
-        {
-            curHealth = 0;
-            Instantiate(gyroExplosion, transform.position, transform.rotation);
-            this.gameObject.SetActive(false);
-        }
+        readyToAttack = false;
     }
 }

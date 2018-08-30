@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114936370038862656}
   m_Layer: 0
   m_Name: SwarmBot
-  m_TagString: SwarmBot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   maxHealth: 100
   explosionParticle: {fileID: 198644265131504928, guid: e65a05a830a070547bcf6cf5bb82ae31,
     type: 2}
-  knockBackForce: 10
+  knockBackForce: 3
   damageTaken: 100
   readyToAttack: 0
   timer: 0
