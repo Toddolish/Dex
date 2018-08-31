@@ -15,4 +15,14 @@ public class BladeRotate : MonoBehaviour
     {
         this.gameObject.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
 	}
+    /* public float rotateSpeed;
+    Transform trans;
+    Transform Target;
+    Rigidbody rigidBody;
+	void Start ()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        trans = GetComponent<Transform>();
+        Target = GameObject.Find("GyroBot_V1.2").GetComponent<Transform>();
+    }*/
 }

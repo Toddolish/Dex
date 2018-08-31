@@ -14,7 +14,7 @@ public class GyroBot : MonoBehaviour
     NavMeshAgent agent;
     Transform gyroBlade;
     public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
-    float hackedTimer;
+    public float hackedTimer;
     public float hackedLength;
     bool seekTime;
 
@@ -50,6 +50,21 @@ public class GyroBot : MonoBehaviour
                 timer = 0;
             }
         }
+        transform.LookAt(target);
+        if (modeHacked)
+        {
+            gyroBlade.tag = ("Blade");
+            eyeRend.material = neonBlue;
+            hackedTimer += Time.deltaTime;
+            if (hackedTimer > hackedLength)
+            {
+                gyroBlade.tag = ("safe");
+                modeHacked = false;
+                eyeRend.material = neonOrange;
+                transform.LookAt(target);
+                hackedTimer = 0;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -59,23 +74,6 @@ public class GyroBot : MonoBehaviour
             rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
             modeHacked = true;
             seekTime = false;
-        }
-    }
-    void LateUpdate()
-    {
-        transform.LookAt(target);
-        if(modeHacked)
-        {
-            gyroBlade.tag = ("Blade");
-            eyeRend.material = neonBlue;
-            hackedTimer += Time.deltaTime;
-            if(hackedTimer > hackedLength)
-            {
-                gyroBlade.tag = ("safe");
-                modeHacked = false;
-                eyeRend.material = neonOrange;
-                hackedTimer = 0;
-            }
         }
     }
     public void SeekPlayer()

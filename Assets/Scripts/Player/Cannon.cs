@@ -9,13 +9,15 @@ public class Cannon : MonoBehaviour
     [Range(0.1f, 2)]
     public float timeBetweenShots = 0.5f;
     public float range = 100f;
+    public float radius;
+    public ParticleSystem ShockWave;
 
     [SerializeField] float timer;
     Ray shootRay;
     RaycastHit shootHit;
     int shootableMask;
 
-    LineRenderer gunLine;
+    //LineRenderer gunLine;
 
     public float effectsDisplayTime = 0.2f;
     public bool startCooldown = false;
@@ -26,6 +28,7 @@ public class Cannon : MonoBehaviour
 
     //bot
     GyroBot gyroScript;
+    SwarmBot swarmBot;
 
     //pickup
     HealthPickup healthPickup;
@@ -34,34 +37,34 @@ public class Cannon : MonoBehaviour
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
-        gunLine = GetComponent<LineRenderer>();
+        //gunLine = GetComponent<LineRenderer>();
     }
     void Update ()
     {
-         
         if (startCooldown)
         {
-            gunLine.material = green;
+            //gunLine.material = green;
             timer += Time.deltaTime;
             if(timer >= timeBetweenShots)
             {
-                gunLine.material = red;
+                //gunLine.material = red;
                 startCooldown = false;
                 timer = 0f;
             }
         }
         
-        gunLine.enabled = true;
-        gunLine.SetPosition(0, transform.position);
+        //gunLine.enabled = true;
+        //gunLine.SetPosition(0, transform.position);
 
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
 
-        gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+        //gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         if (startCooldown == false)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                ShockWave.Play();
                 startCooldown = true;
                 Shoot();
             }
@@ -70,32 +73,37 @@ public class Cannon : MonoBehaviour
     public void Shoot()
     {
         RaycastHit[] hits;
-        hits = Physics.RaycastAll(transform.position, transform.forward, range, shootableMask);
+        hits = Physics.SphereCastAll(transform.position, radius, transform.forward, range, shootableMask);
 
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
             {
-                Debug.Log(hits[i].collider.name);
+                //Debug.Log(hits[i].collider.name); to check what i am hitting
                 shootHit = hits[i];
-                //if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-                //{
-                    if (gyroScript = shootHit.collider.gameObject.GetComponent<GyroBot>())
-                    {
-                        gyroScript.SeekPlayer();
-                    }
-                    if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
-                    {
-                        healthPickup.SeekPlayer();
-                    }
-                    if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
-                    {
-                        energyPickup.SeekPlayer();
-                    }
-                //}
+                if (gyroScript = shootHit.collider.gameObject.GetComponent<GyroBot>())
+                {
+                    //gyroScript.modeHacked = false;
+                    gyroScript.hackedTimer = 0;
+                    gyroScript.SeekPlayer();
+                }
+                if (swarmBot = shootHit.collider.gameObject.GetComponent<SwarmBot>())
+                {
+                    swarmBot.SeekPlayer();
+                }
+                if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
+                {
+                    healthPickup.SeekPlayer();
+                }
+                if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
+                {
+                    energyPickup.SeekPlayer();
+                }
             }
         }
-        
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
 }

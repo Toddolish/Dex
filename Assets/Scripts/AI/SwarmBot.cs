@@ -30,10 +30,14 @@ public class SwarmBot : MonoBehaviour
     [Header("DROPS")]
     public GameObject EnergyPickup;
     public GameObject HealthPickup;
-
     public float minPickupCount;
     public float maxPickupCount;
     public float dropRate;
+
+    [Header("PULL")]
+    public float forceSpeed;
+    
+    
 
     void Start ()
     {
@@ -103,7 +107,7 @@ public class SwarmBot : MonoBehaviour
     }
     public void SeekPlayer()
     {
-        //rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
+        rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
         //modeHacked = true;
     }
     void HealthDrop()

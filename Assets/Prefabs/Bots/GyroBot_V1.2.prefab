@@ -423,6 +423,7 @@ MonoBehaviour:
   forceSpeed: 200
   target: {fileID: 0}
   modeHacked: 0
+  hackedTimer: 0
   hackedLength: 2
   neonBlue: {fileID: 2100000, guid: 576058ab396a977459330ae0c2a80209, type: 2}
   neonOrange: {fileID: 2100000, guid: 5b75f47a0ca2f0446b4efd1faa93d685, type: 2}
@@ -450,8 +451,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.55
-  m_Speed: 6
-  m_Acceleration: 10
+  m_Speed: 12
+  m_Acceleration: 15
   avoidancePriority: 40
   m_AngularSpeed: 120
   m_StoppingDistance: 0
