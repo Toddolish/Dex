@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
+   // public SceneManagement manager;
 
     public float rotateSpeed;
     public Camera mainCamera;
-    void Start()
+   public void Start()
     {
-
+     //  SceneManagement manager = paused.GetComponent<SceneManagement>();
     }
 	
 	void Update ()
     {
-
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float rayLength;
-
-        if (groundPlane.Raycast(cameraRay, out rayLength))
+    // if (manager.paused == false)
         {
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+
+
+            if (groundPlane.Raycast(cameraRay, out rayLength))
+            {
+                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            }
         }
 
     }
+
 }
 

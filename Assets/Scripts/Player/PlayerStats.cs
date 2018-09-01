@@ -157,5 +157,9 @@ namespace Player
             curHealth -= 50;
             invincible = true;
         }
+        public void DamageByMeme()
+        {
+            curHealth -= 25;
+        }
     }
 }

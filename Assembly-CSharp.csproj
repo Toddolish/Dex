@@ -63,17 +63,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\BladeRotate.cs" />
     <Compile Include="Assets\Scripts\AI\GyroBot.cs" />
+    <Compile Include="Assets\Scripts\AI\MemeBot.cs" />
+    <Compile Include="Assets\Scripts\AI\Memebot_Projectile.cs" />
     <Compile Include="Assets\Scripts\AI\SwarmBot.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraZoomFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\Cursor.cs" />
     <Compile Include="Assets\Scripts\EnergyPickup.cs" />
+    <Compile Include="Assets\Scripts\Event\SceneManagement.cs" />
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\Player\Cannon.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerRotation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Spawner\MemeBotSpawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\SpawnBotSpawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\WaveSpawner.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
