@@ -36,8 +36,6 @@ public class SwarmBot : MonoBehaviour
 
     [Header("PULL")]
     public float forceSpeed;
-    
-    
 
     void Start ()
     {
@@ -54,26 +52,15 @@ public class SwarmBot : MonoBehaviour
         agent.SetDestination(target.position);
         transform.LookAt(target);
         Explode();
+        Attack();
 
-        if(!readyToAttack)
-        {
-            timer += Time.deltaTime;
-            if(timer > attackCooldownSpeed)
-            {
-                readyToAttack = true;
-                timer = 0;
-            }
-        }
+
     }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Blade") //getting the gyro robot by a tag
         {
-            //gyroScript = other.gameObject.GetComponent<GyroBot>();
-            //if (gyroScript.modeHacked)
-            //{
-                curHealth -= 100f;
-            //}
+            curHealth -= 100f;
         }
         if (other.gameObject.tag == "Player")
         {
@@ -122,6 +109,18 @@ public class SwarmBot : MonoBehaviour
         if (dropRate > 20 && dropRate < 21)
         {
             Instantiate(EnergyPickup, transform.position, transform.rotation);
+        }
+    }
+    void Attack()
+    {
+        if (!readyToAttack)
+        {
+            timer += Time.deltaTime;
+            if (timer > attackCooldownSpeed)
+            {
+                readyToAttack = true;
+                timer = 0;
+            }
         }
     }
 }

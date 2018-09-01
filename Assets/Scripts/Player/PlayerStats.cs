@@ -132,7 +132,6 @@ namespace Player
                 {
                     DamageByGyro();
                 }
-
             }
         }
         void GameOver()
@@ -155,7 +154,7 @@ namespace Player
         public void DamageByGyro()
         {
             curHealth -= 50;
-            invincible = true;
+            //invincible = true;
         }
         public void DamageByMeme()
         {

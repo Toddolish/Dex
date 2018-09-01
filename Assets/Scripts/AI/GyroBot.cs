@@ -53,11 +53,15 @@ public class GyroBot : MonoBehaviour
         transform.LookAt(target);
         if (modeHacked)
         {
+            //agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            agent.radius = 0.1f;
             gyroBlade.tag = ("Blade");
             eyeRend.material = neonBlue;
             hackedTimer += Time.deltaTime;
             if (hackedTimer > hackedLength)
             {
+                //agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+                agent.radius = 1;
                 gyroBlade.tag = ("safe");
                 modeHacked = false;
                 eyeRend.material = neonOrange;
