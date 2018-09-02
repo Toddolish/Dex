@@ -8,6 +8,7 @@ namespace Player
 {
     public class PlayerStats : MonoBehaviour
     {
+        #region Health
         [Header("HEALTH")]
         public float curHealth;
         public float maxHealth;
@@ -15,7 +16,8 @@ namespace Player
         public float xReductionSpeed;
         Image xHealthBar;
         Image hpBar;
-
+        #endregion
+        #region   Energy
         [Header("ENERGY")]
         public float curEnergy;
         public float maxEnergy;
@@ -27,6 +29,7 @@ namespace Player
         public bool waitForRegen;
         Image xEnergyBar; 
         Image energyBar;
+#endregion
 
         public bool invincible;
         PlayerMovement playerMoveScript;
@@ -126,7 +129,7 @@ namespace Player
         }
         private void OnTriggerEnter(Collider player)
         {
-            if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
+            if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe" || player.gameObject.tag == "Danger") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
             {
                 if (!invincible)
                 {

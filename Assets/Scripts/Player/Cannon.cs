@@ -85,7 +85,7 @@ public class Cannon : MonoBehaviour
                 {
                     //gyroScript.modeHacked = false;
                     gyroScript.hackedTimer = 0;
-                    gyroScript.SeekPlayer();
+                    gyroScript.ActivateSeekPlayer();
                 }
                 if (swarmBot = shootHit.collider.gameObject.GetComponent<SwarmBot>())
                 {

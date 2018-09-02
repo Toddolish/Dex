@@ -20,6 +20,7 @@ namespace Player
         CapsuleCollider col;
         public ParticleSystem dashParticle;
         public float dashConsuption;// the amount of energy taken when is dashing
+        public GameObject dashRange; //enable dashRange to destroy swarmBots
 
         [Header("COOLDOWN")]
         public float maxCooldown;
@@ -31,6 +32,7 @@ namespace Player
 
         void Start()
         {
+            dashRange.SetActive(false);
             originalSpeed = movementSpeed;
             col = GetComponent<CapsuleCollider>();
             rb = GetComponent<Rigidbody>();
@@ -58,16 +60,17 @@ namespace Player
         {
             if (dashing)
             {
-                col.isTrigger = true;
+                dashRange.SetActive(true);
                 col.radius = 0.5f; //clean this witha float string please todd
                 timer += Time.deltaTime;
                 originalSpeed = dashSpeed;
                 dashParticle.Emit(5);
                 if (timer > dashDistance)
                 {
+                    dashRange.SetActive(false);
                     originalSpeed = movementSpeed;
                     dashing = false;
-                    col.isTrigger = false;
+                    //col.isTrigger = false;
                     col.radius = 0.5f;
                 }
             }

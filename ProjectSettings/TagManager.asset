@@ -15,6 +15,9 @@ TagManager:
   - safe
   - MemeBot
   - PistonTrap
+  - Fire
+  - Danger
+  - PlayerDash
   layers:
   - Default
   - TransparentFX

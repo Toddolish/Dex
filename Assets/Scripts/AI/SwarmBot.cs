@@ -8,34 +8,53 @@ public class SwarmBot : MonoBehaviour
 {
     public Transform target;
     NavMeshAgent agent;
+    Rigidbody rb;
+
     PlayerMovement playerMoveScript;
     PlayerStats playerStats;
-    Rigidbody rb;
+    
     GyroBot gyroScript;
 
+    #region Health
     [Header("HEALTH")]
     public float curHealth;
     public float maxHealth = 100f;
     public ParticleSystem explosionParticle;
-
+    #endregion
+    #region Knockback
     [Header("KNOCKBACK")]
     public float knockBackForce;
     public float damageTaken;
-
+    #endregion
+    #region Attack    
     [Header("ATTACK")]
     public bool readyToAttack = true;
     [SerializeField]float timer;
     public float attackCooldownSpeed;
-
+    #endregion
+    #region Drops
     [Header("DROPS")]
     public GameObject EnergyPickup;
     public GameObject HealthPickup;
     public float minPickupCount;
     public float maxPickupCount;
     public float dropRate;
-
-    [Header("PULL")]
+    #endregion
+    #region Hacked
+    [Header("HACKED")]
     public float forceSpeed;
+    public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
+    public float hackedTimer;
+    public float hackedLength;
+    bool seekTime;
+    
+    [Header("MATERIALS")]
+    MeshRenderer eyeRend;
+    public Material neonBlue;//eye colour when hacked by player
+    public Material neonOrange;//eye colour when hunting player
+    #endregion
+
+
 
     void Start ()
     {
@@ -44,6 +63,7 @@ public class SwarmBot : MonoBehaviour
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
+        eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
     }
 	
 	void Update ()
@@ -51,10 +71,28 @@ public class SwarmBot : MonoBehaviour
         dropRate = Random.Range(minPickupCount, maxPickupCount);
         agent.SetDestination(target.position);
         transform.LookAt(target);
+        #region Methods
         Explode();
         Attack();
-
-
+        #endregion
+        if (modeHacked)
+        {
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            agent.avoidancePriority = 99;
+            //gyroBlade.tag = ("Blade");
+            eyeRend.material = neonBlue;
+            hackedTimer += Time.deltaTime;
+            if (hackedTimer > hackedLength)
+            {
+                agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+                agent.avoidancePriority = 50;
+                //gyroBlade.tag = ("safe");
+                modeHacked = false;
+                eyeRend.material = neonOrange;
+                transform.LookAt(target);
+                hackedTimer = 0;
+            }
+        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -62,7 +100,11 @@ public class SwarmBot : MonoBehaviour
         {
             curHealth -= 100f;
         }
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Danger")
+        {
+            curHealth -= 100f;
+        }
+        if (other.gameObject.tag == "PlayerDash")
         {
             TakeDamage();
         }
@@ -95,7 +137,7 @@ public class SwarmBot : MonoBehaviour
     public void SeekPlayer()
     {
         rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
-        //modeHacked = true;
+        modeHacked = true;
     }
     void HealthDrop()
     {
