@@ -36,6 +36,8 @@ public class SwarmBot : MonoBehaviour
     [Header("DROPS")]
     public GameObject EnergyPickup;
     public GameObject HealthPickup;
+    public GameObject NutPickup;
+    public GameObject BoltPickup;
     public float minPickupCount;
     public float maxPickupCount;
     public float dropRate;
@@ -121,8 +123,10 @@ public class SwarmBot : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            HealthDrop();
-            EnergyDrop();
+            //HealthDrop();
+            //EnergyDrop();
+            NutDrop();
+            BoltDrop();
             curHealth = 0;
             Instantiate(explosionParticle, transform.position, transform.rotation);
             Destroy(this.gameObject);
@@ -151,6 +155,20 @@ public class SwarmBot : MonoBehaviour
         if (dropRate > 20 && dropRate < 21)
         {
             Instantiate(EnergyPickup, transform.position, transform.rotation);
+        }
+    }
+    void NutDrop()
+    {
+        if (dropRate < 20)
+        {
+            Instantiate(NutPickup, transform.position, transform.rotation);
+        }
+    }
+    void BoltDrop()
+    {
+        if (dropRate < 20)
+        {
+            Instantiate(BoltPickup, transform.position, transform.rotation);
         }
     }
     void Attack()

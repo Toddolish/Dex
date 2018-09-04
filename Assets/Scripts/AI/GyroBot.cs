@@ -16,7 +16,7 @@ public class GyroBot : MonoBehaviour
 
     [Header("HEALTH")]
     public float curHealth;
-    float maxHealth = 100;
+    float maxHealth = 100000;
     public bool canTakeDamage;
     public GameObject explosionParticle;
     ParticleSystem Flare;

@@ -18,6 +18,8 @@ TagManager:
   - Fire
   - Danger
   - PlayerDash
+  - Nut
+  - Bolt
   layers:
   - Default
   - TransparentFX

@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160889279389496}
   m_LocalRotation: {x: -0, y: -0.0044163363, z: -0, w: 0.9999903}
-  m_LocalPosition: {x: 9.705435, y: 0.63, z: 15.560999}
+  m_LocalPosition: {x: 0.75929785, y: 1.14, z: -14.3329935}
   m_LocalScale: {x: 1, y: 0.70107, z: 1}
   m_Children:
   - {fileID: 4871718061461696}
@@ -201,8 +201,10 @@ MonoBehaviour:
     type: 2}
   HealthPickup: {fileID: 1861341333886588, guid: 107970cbce334284b9e21d1379c8b373,
     type: 2}
+  NutPickup: {fileID: 1860595467386608, guid: df26cd812cd85174ab53687b1fe9a1c3, type: 2}
+  BoltPickup: {fileID: 1100013148604502, guid: ed594ad394c1bd5418ee25a3ae517996, type: 2}
   minPickupCount: 1
-  maxPickupCount: 30
+  maxPickupCount: 20
   dropRate: 0
   forceSpeed: 20
   modeHacked: 0

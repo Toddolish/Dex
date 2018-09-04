@@ -81,9 +81,9 @@ public class WaveSpawner : MonoBehaviour
     bool EnemyIsAlive()
     {
         searchCountdown -= Time.deltaTime;
-        if(searchCountdown <= 0f)
+        if(searchCountdown < 3f)
         {
-            searchCountdown = 1f;
+            searchCountdown = 0.1f;
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 return false;

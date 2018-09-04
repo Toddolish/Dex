@@ -34,6 +34,16 @@ namespace Player
         public bool invincible;
         PlayerMovement playerMoveScript;
         GyroBot gyroBot;
+        Parts partsPickup;
+
+        #region Raycast
+        [Header("RAYCAST")]
+        public float range = 5f;
+        public float radius = 5f;
+        Ray shootRay;
+        RaycastHit shootHit;
+        int shootableMask;
+#endregion
 
 
         void Start()
@@ -56,7 +66,11 @@ namespace Player
 
             #endregion
         }
-
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.color = Color.red;
+        }
         void Update()
         {
             if (playerMoveScript.dashing)
@@ -126,6 +140,7 @@ namespace Player
                 energyTimer = maxEnergyRegenTime;
             }
             #endregion
+            Magnet();
         }
         private void OnTriggerEnter(Collider player)
         {
@@ -134,6 +149,24 @@ namespace Player
                 if (!invincible)
                 {
                     DamageByGyro();
+                }
+            }
+        }
+        public void Magnet()
+        {
+            RaycastHit[] hits;
+            hits = Physics.SphereCastAll(transform.position, radius, transform.forward, range, shootableMask);
+
+            if (hits.Length > 0)
+            {
+                for (int i = 0; i < hits.Length; i++)
+                {
+                    Debug.Log(hits[i].collider.name); //to check what i am hitting
+                    shootHit = hits[i];
+                    if (partsPickup = shootHit.collider.gameObject.GetComponent<Parts>())
+                    {
+                        partsPickup.SeekPlayer();
+                    }
                 }
             }
         }

@@ -33,6 +33,7 @@ public class Cannon : MonoBehaviour
     //pickup
     HealthPickup healthPickup;
     EnergyPickup energyPickup;
+    Parts partsPickup;
 
     void Awake()
     {
@@ -98,6 +99,14 @@ public class Cannon : MonoBehaviour
                 if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
                 {
                     energyPickup.SeekPlayer();
+                }
+                if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
+                {
+                    energyPickup.SeekPlayer();
+                }
+                if (partsPickup = shootHit.collider.gameObject.GetComponent<Parts>())
+                {
+                    partsPickup.SeekPlayer();
                 }
             }
         }
