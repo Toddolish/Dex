@@ -99,7 +99,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 3.9
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -4031,7 +4031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &971772789
 Transform:
   m_ObjectHideFlags: 0
@@ -4082,6 +4082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972069340}
+  - component: {fileID: 972069341}
   m_Layer: 0
   m_Name: SpawnPoint1
   m_TagString: Untagged
@@ -4103,6 +4104,21 @@ Transform:
   m_Father: {fileID: 446498131}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972069341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972069339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48547dec2675b93439d2e9d13433fc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnTime: 10
+  maxSpawnTime: 20
+  spawnTime: 0
+  memeBot: {fileID: 1398214454351426, guid: be897f49959dd2d458d62382ca297d62, type: 2}
 --- !u!1 &1005068195
 GameObject:
   m_ObjectHideFlags: 0
@@ -11598,6 +11614,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1679066844040088, guid: 415d4f87dadbbc14a9e98d894858d31f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 415d4f87dadbbc14a9e98d894858d31f, type: 2}
   m_IsPrefabAsset: 0
@@ -11957,6 +11977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2037073699}
+  - component: {fileID: 2037073700}
   m_Layer: 0
   m_Name: SpawnPoint2
   m_TagString: Untagged
@@ -11978,6 +11999,21 @@ Transform:
   m_Father: {fileID: 446498131}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2037073700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037073698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48547dec2675b93439d2e9d13433fc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnTime: 10
+  maxSpawnTime: 20
+  spawnTime: 0
+  memeBot: {fileID: 1398214454351426, guid: be897f49959dd2d458d62382ca297d62, type: 2}
 --- !u!1 &2045059486
 GameObject:
   m_ObjectHideFlags: 0

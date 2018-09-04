@@ -31,6 +31,7 @@ public class Memebot_Projectile : MonoBehaviour
 
         Destroy(gameObject);
         Instantiate(particle, transform.position, transform.rotation);
+
     }
 
 }
