@@ -264,14 +264,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceSpeed: 200
   target: {fileID: 0}
+  curHealth: 0
+  canTakeDamage: 0
+  explosionParticle: {fileID: 0}
   modeHacked: 0
+  hackedTimer: 0
   hackedLength: 2
   neonBlue: {fileID: 2100000, guid: 576058ab396a977459330ae0c2a80209, type: 2}
   neonOrange: {fileID: 2100000, guid: 5b75f47a0ca2f0446b4efd1faa93d685, type: 2}
-  curHealth: 0
-  maxHealth: 100
-  gyroExplosion: {fileID: 198869134218483534, guid: 734b95c7d80270c4d8217f7b9b3ebcd4,
-    type: 2}
+  readyToAttack: 1
+  timer: 0
+  attackCooldownSpeed: 0
 --- !u!114 &114939727983836050
 MonoBehaviour:
   m_ObjectHideFlags: 1

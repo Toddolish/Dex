@@ -14,6 +14,10 @@ public class SwarmBot : MonoBehaviour
     PlayerStats playerStats;
     
     GyroBot gyroScript;
+    [Header("TYPE")]
+    [Header("Gold swarmBot will drop gold Multipliers")]
+    public bool goldSwarmBot;
+
 
     #region Health
     [Header("HEALTH")]
@@ -34,10 +38,11 @@ public class SwarmBot : MonoBehaviour
     #endregion
     #region Drops
     [Header("DROPS")]
-    public GameObject EnergyPickup;
-    public GameObject HealthPickup;
-    public GameObject NutPickup;
-    public GameObject BoltPickup;
+    public GameObject energyPickup;
+    public GameObject healthPickup;
+    public GameObject nutPickup;
+    public GameObject boltPickup;
+    public GameObject goldPickup;
     public float minPickupCount;
     public float maxPickupCount;
     public float dropRate;
@@ -123,13 +128,26 @@ public class SwarmBot : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            //HealthDrop();
-            //EnergyDrop();
-            NutDrop();
-            BoltDrop();
-            curHealth = 0;
-            Instantiate(explosionParticle, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            //swarmBot will drop normalDrops
+            if (goldSwarmBot == false)
+            {
+                //HealthDrop();
+                //EnergyDrop();
+                NutDrop();
+                BoltDrop();
+                curHealth = 0;
+                Instantiate(explosionParticle, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
+            //swarmBot will drop goldDrops multipliers
+            if(goldSwarmBot == true)
+            {
+                curHealth = 0;
+                GoldDrop();
+                //spawn new cool goldenLava explosion
+                Instantiate(explosionParticle, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
         }
     }
     public void TakeDamage()
@@ -147,28 +165,35 @@ public class SwarmBot : MonoBehaviour
     {
         if(dropRate > 11 && dropRate < 12)
         {
-            Instantiate(HealthPickup, transform.position, transform.rotation);
+            Instantiate(healthPickup, transform.position, transform.rotation);
         }
     }
     void EnergyDrop()
     {
         if (dropRate > 20 && dropRate < 21)
         {
-            Instantiate(EnergyPickup, transform.position, transform.rotation);
+            Instantiate(energyPickup, transform.position, transform.rotation);
         }
     }
     void NutDrop()
     {
         if (dropRate < 20)
         {
-            Instantiate(NutPickup, transform.position, transform.rotation);
+            Instantiate(nutPickup, transform.position, transform.rotation);
+        }
+    }
+    void GoldDrop()
+    {
+        if (dropRate <= 20)
+        {
+            Instantiate(goldPickup, transform.position, transform.rotation);
         }
     }
     void BoltDrop()
     {
         if (dropRate < 20)
         {
-            Instantiate(BoltPickup, transform.position, transform.rotation);
+            Instantiate(boltPickup, transform.position, transform.rotation);
         }
     }
     void Attack()

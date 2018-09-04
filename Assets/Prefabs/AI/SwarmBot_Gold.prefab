@@ -9,40 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1160889279389496}
+  m_RootGameObject: {fileID: 1376494034003696}
   m_IsPrefabAsset: 1
---- !u!1 &1160889279389496
+--- !u!1 &1116869592754688
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4572374888951446}
-  - component: {fileID: 33710297800479790}
-  - component: {fileID: 23672508414068956}
-  - component: {fileID: 136852052621150054}
-  - component: {fileID: 195082388411113938}
-  - component: {fileID: 54122881653423262}
-  - component: {fileID: 114936370038862656}
-  m_Layer: 10
-  m_Name: SwarmBot
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1185746793521674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4871718061461696}
-  - component: {fileID: 33990536413208646}
-  - component: {fileID: 23510609556329662}
-  - component: {fileID: 135261008624466730}
+  - component: {fileID: 4106225451738658}
+  - component: {fileID: 33762048079203818}
+  - component: {fileID: 23536928882109714}
+  - component: {fileID: 135218138847318310}
   m_Layer: 10
   m_Name: Eye
   m_TagString: Untagged
@@ -50,39 +29,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4572374888951446
+--- !u!1 &1376494034003696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4429305781477972}
+  - component: {fileID: 33194180572895148}
+  - component: {fileID: 23051225179356396}
+  - component: {fileID: 136346681524757784}
+  - component: {fileID: 54515585509140060}
+  - component: {fileID: 195824043907921492}
+  - component: {fileID: 114913506554050860}
+  m_Layer: 10
+  m_Name: SwarmBot_Gold
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4106225451738658
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1116869592754688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.243, z: 0.37}
+  m_LocalScale: {x: 0.5689287, y: 1.0210818, z: 0.48128542}
+  m_Children: []
+  m_Father: {fileID: 4429305781477972}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4429305781477972
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376494034003696}
   m_LocalRotation: {x: -0, y: -0.0044163363, z: -0, w: 0.9999903}
-  m_LocalPosition: {x: 0.75929785, y: 1.14, z: -14.3329935}
-  m_LocalScale: {x: 1, y: 0.70107, z: 1}
+  m_LocalPosition: {x: 0.2995615, y: -0.21783829, z: -9.791654}
+  m_LocalScale: {x: 1.2028084, y: 0.8432529, z: 1.2028084}
   m_Children:
-  - {fileID: 4871718061461696}
+  - {fileID: 4106225451738658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0.50600004, z: 0}
---- !u!4 &4871718061461696
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185746793521674}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.243, z: 0.321}
-  m_LocalScale: {x: 0.5689287, y: 1.0210818, z: 0.48128542}
-  m_Children: []
-  m_Father: {fileID: 4572374888951446}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23510609556329662
+--- !u!23 &23051225179356396
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185746793521674}
+  m_GameObject: {fileID: 1376494034003696}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -92,7 +92,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: cf35637757651c2408b44b1099149ae5, type: 2}
+  - {fileID: 2100000, guid: 34b9cbbe826f47e449016cf56cf39f8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,12 +112,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23672508414068956
+--- !u!23 &23536928882109714
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1116869592754688}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -127,7 +127,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4495ee03b08651248b8c970fbe35bd0e, type: 2}
+  - {fileID: 2100000, guid: 7f9ed46b7ff354a4ba8098961b7c3195, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,26 +147,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33710297800479790
+--- !u!33 &33194180572895148
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1376494034003696}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33990536413208646
+--- !u!33 &33762048079203818
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185746793521674}
+  m_GameObject: {fileID: 1116869592754688}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54122881653423262
+--- !u!54 &54515585509140060
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1376494034003696}
   serializedVersion: 2
   m_Mass: 0.3
   m_Drag: 5
@@ -176,33 +176,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114936370038862656
+--- !u!114 &114913506554050860
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1376494034003696}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e035ce74da34ed346aa7d041b1815e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  goldSwarmBot: 1
   curHealth: 0
   maxHealth: 100
-  explosionParticle: {fileID: 198365490574888780, guid: 46d66807ebd12be498da62059cfe6d15,
+  explosionParticle: {fileID: 198477355959819308, guid: b8e1d52e1efa1354a930cc0f460e5c7c,
     type: 2}
   knockBackForce: 3
   damageTaken: 100
   readyToAttack: 0
   timer: 0
   attackCooldownSpeed: 1
-  EnergyPickup: {fileID: 1099074704108590, guid: 7d6ad79297308e741b6d5f836a758507,
+  energyPickup: {fileID: 1099074704108590, guid: 7d6ad79297308e741b6d5f836a758507,
     type: 2}
-  HealthPickup: {fileID: 1861341333886588, guid: 107970cbce334284b9e21d1379c8b373,
+  healthPickup: {fileID: 1861341333886588, guid: 107970cbce334284b9e21d1379c8b373,
     type: 2}
-  NutPickup: {fileID: 1860595467386608, guid: df26cd812cd85174ab53687b1fe9a1c3, type: 2}
-  BoltPickup: {fileID: 1100013148604502, guid: ed594ad394c1bd5418ee25a3ae517996, type: 2}
+  nutPickup: {fileID: 1435402898862680, guid: df26cd812cd85174ab53687b1fe9a1c3, type: 2}
+  boltPickup: {fileID: 1893769895027260, guid: ed594ad394c1bd5418ee25a3ae517996, type: 2}
+  goldPickup: {fileID: 1081479025529602, guid: d86d14d0e5afad64bb37f3678e608ada, type: 2}
   minPickupCount: 1
   maxPickupCount: 20
   dropRate: 0
@@ -211,25 +213,25 @@ MonoBehaviour:
   hackedTimer: 0
   hackedLength: 1
   neonBlue: {fileID: 2100000, guid: 576058ab396a977459330ae0c2a80209, type: 2}
-  neonOrange: {fileID: 2100000, guid: cf35637757651c2408b44b1099149ae5, type: 2}
---- !u!135 &135261008624466730
+  neonOrange: {fileID: 2100000, guid: 7f9ed46b7ff354a4ba8098961b7c3195, type: 2}
+--- !u!135 &135218138847318310
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185746793521674}
+  m_GameObject: {fileID: 1116869592754688}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136852052621150054
+--- !u!136 &136346681524757784
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1376494034003696}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -237,17 +239,17 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &195082388411113938
+--- !u!195 &195824043907921492
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160889279389496}
+  m_GameObject: {fileID: 1376494034003696}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.64
-  m_Speed: 10
-  m_Acceleration: 20
+  m_Speed: 8
+  m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

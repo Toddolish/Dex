@@ -98,15 +98,15 @@ public class GyroBot : MonoBehaviour
     {
         if (modeHacked)
         {
-            agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-            agent.avoidancePriority = 99;
+            //agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            //agent.avoidancePriority = 99;
             gyroBlade.tag = ("Blade");
             eyeRend.material = neonBlue;
             hackedTimer += Time.deltaTime;
             if (hackedTimer > hackedLength)
             {
-                agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-                agent.avoidancePriority = 50;
+                //agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+                //agent.avoidancePriority = 50;
                 gyroBlade.tag = ("safe");
                 modeHacked = false;
                 eyeRend.material = neonOrange;

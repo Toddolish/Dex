@@ -146,10 +146,10 @@ namespace Player
         {
             if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe" || player.gameObject.tag == "Danger") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
             {
-                if (!invincible)
-                {
+                //if (!invincible)
+                //{
                     DamageByGyro();
-                }
+                //}
             }
         }
         public void Magnet()
