@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/toddw/Desktop/DexGameProject/DexPro_V2.1/Dex.exe
+C:/Users/todd.weiss2/Desktop/DexMain/Dex.exe
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/Prototype.unity
@@ -179,7 +179,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 6cb8e166eb7b5eba6567fb6b107b6d77 Assembly-CSharp.dll:UnityStandardAssets.Utility.WaypointCircuit
 72a8523b432c0a5317826b7a9e0a0e79 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
-395226ba308f0470ac15a081308b1e39 Assembly-CSharp.dll:.SceneManagement
+b3fd60812434d68ab452037992de7c6b Assembly-CSharp.dll:.SceneManagement
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 5a11340e0fa9e5a7095c9b00f785377c Assembly-CSharp.dll:.PlayerRotation

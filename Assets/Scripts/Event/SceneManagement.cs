@@ -12,21 +12,26 @@ public class SceneManagement : MonoBehaviour
     public GameObject tutorialPanel;
 
 
-    private void Start()
-
+    private void Awake()
     {
-        int hasPlayed = PlayerPrefs.GetInt("HasPlayed");
-        Time.timeScale = 1;
-        if (hasPlayed == 0)
+        if (tutorialPanel.activeSelf == true)
         {
+            // Debug.Log()
             Time.timeScale = 0;
-            PlayerPrefs.SetInt("HasPlayed", 1);
             tutorialPanel.SetActive(true);
         }
+    }
+    private void Start()
+    {
+        Time.timeScale = 1;
+
     }
 
     private void Update()
     {
+       // int hasPlayed = PlayerPrefs.GetInt("HasPlayed", 0);
+       // if (PlayerPrefs.GetInt("HasPlayed") == 0)
+       
         if (Input.GetKeyDown(KeyCode.Escape))
             if (paused)
             {
@@ -43,6 +48,7 @@ public class SceneManagement : MonoBehaviour
     }
     public void Continue()
     {
+        PlayerPrefs.SetInt("HasPlayed", 1);
         pausePanel.SetActive(false);
         statsDisplay.SetActive(true);
         paused = false;

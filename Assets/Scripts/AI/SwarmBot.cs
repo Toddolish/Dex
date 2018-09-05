@@ -131,8 +131,8 @@ public class SwarmBot : MonoBehaviour
             //swarmBot will drop normalDrops
             if (goldSwarmBot == false)
             {
-                //HealthDrop();
-                //EnergyDrop();
+                HealthDrop();
+                EnergyDrop();
                 NutDrop();
                 BoltDrop();
                 curHealth = 0;

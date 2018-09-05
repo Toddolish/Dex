@@ -1102,6 +1102,11 @@ Transform:
   m_Father: {fileID: 1991389117}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &212913419 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800000, guid: 1f7aa4d40edff6e48b549003cad031e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1553222521}
 --- !u!1 &250423057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,7 +2298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &439908370
 Transform:
   m_ObjectHideFlags: 0
@@ -3930,7 +3935,7 @@ MonoBehaviour:
   paused: 0
   pausePanel: {fileID: 1116058365}
   statsDisplay: {fileID: 1635729238}
-  tutorialPanel: {fileID: 0}
+  tutorialPanel: {fileID: 284830699}
 --- !u!114 &904170132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4294,7 +4299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &971772789
 Transform:
   m_ObjectHideFlags: 0
@@ -4321,24 +4326,92 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveText: {fileID: 0}
-  waveCount: 0
+  waveCount: 20
   waves:
-  - name: Wave1
+  - name: 1
     enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
-    count: 1
-    rate: 2
-  - name: Wave2
+    count: 0
+    rate: 0
+  - name: 2
     enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
-    count: 3
-    rate: 5
-  - name: Wave3
+    count: 2
+    rate: 1
+  - name: 3
     enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
-    count: 5
-    rate: 2
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
+  - name: 3
+    enemy: {fileID: 4569547060531024, guid: be897f49959dd2d458d62382ca297d62, type: 2}
+    count: 0
+    rate: 0
   spawnPoints:
   - {fileID: 972069340}
   - {fileID: 2037073699}
-  timeBetweenWaves: 2
+  timeBetweenWaves: 0
   goldSwarmBot: {fileID: 0}
   dustStorm: {fileID: 0}
 --- !u!1 &972069339
@@ -5023,6 +5096,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 904170131}
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 284830699}
         m_MethodName: SetActive
         m_Mode: 6
@@ -5262,7 +5346,7 @@ MonoBehaviour:
   timeBetweenWaves: 0
   goldSwarmBot: {fileID: 1376494034003696, guid: cfffc28ef08a42f40b8e0798710a4504,
     type: 2}
-  dustStorm: {fileID: 0}
+  dustStorm: {fileID: 212913419}
 --- !u!4 &1133494322
 Transform:
   m_ObjectHideFlags: 0
