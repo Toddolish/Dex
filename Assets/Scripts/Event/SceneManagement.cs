@@ -9,12 +9,20 @@ public class SceneManagement : MonoBehaviour
     public bool paused;
     public GameObject pausePanel;
     public GameObject statsDisplay;
+    public GameObject tutorialPanel;
 
 
     private void Start()
 
     {
+        int hasPlayed = PlayerPrefs.GetInt("HasPlayed");
         Time.timeScale = 1;
+        if (hasPlayed == 0)
+        {
+            Time.timeScale = 0;
+            PlayerPrefs.SetInt("HasPlayed", 1);
+            tutorialPanel.SetActive(true);
+        }
     }
 
     private void Update()
