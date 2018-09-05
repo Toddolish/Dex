@@ -23,7 +23,7 @@ public class SceneManagement : MonoBehaviour
     }
     private void Start()
     {
-        Time.timeScale = 1;
+       // Time.timeScale = 1;
 
     }
 
