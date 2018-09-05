@@ -393,6 +393,7 @@
     <Compile Include="Assets\Scripts\Player\Projectile.cs" />
     <Compile Include="Assets\Scripts\Player\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Spawner\MemeBot_Spawner.cs" />
+    <Compile Include="Assets\Scripts\Spawner\PickupSpawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\SpawnBotSpawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\WaveSpawner.cs" />
   </ItemGroup>
