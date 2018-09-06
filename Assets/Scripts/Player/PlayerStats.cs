@@ -42,7 +42,7 @@ namespace Player
         public float radius = 5f;
         Ray shootRay;
         RaycastHit shootHit;
-        int shootableMask;
+        public LayerMask shootableMask;
 #endregion
 
 
@@ -66,21 +66,9 @@ namespace Player
 
             #endregion
         }
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(transform.position, radius);
-            Gizmos.color = Color.red;
-        }
         void Update()
         {
-            if (playerMoveScript.dashing)
-            {
-                invincible = true;
-            }
-            else
-            {
-                invincible = false;
-            }
+            
             #region Health
             hpBar.fillAmount = (curHealth / 100);
             xHealthBar.fillAmount = (xHealth / 100);
@@ -140,30 +128,35 @@ namespace Player
                 energyTimer = maxEnergyRegenTime;
             }
             #endregion
+            Invincible();
             Magnet();
         }
         private void OnTriggerEnter(Collider player)
         {
             if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe" || player.gameObject.tag == "Danger") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
             {
-                //if (!invincible)
-                //{
-                    DamageByGyro();
-                //}
+                DamageByGyro();
             }
         }
-        public void Magnet()
+        private void OnDrawGizmos()
         {
-            RaycastHit[] hits;
-            hits = Physics.SphereCastAll(transform.position, radius, transform.forward, range, shootableMask);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, radius);
+            //Gizmos.DrawRay();
+        }
+        void Magnet()
+        {
+            //All Pickups within range of Radius will activate their own seek Fuction. 
+            //|<-Definition->|<-------------------------Declaration------------------------->
+            Collider[] hits = Physics.OverlapSphere(transform.position, radius, shootableMask);
 
             if (hits.Length > 0)
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.Log(hits[i].collider.name); //to check what i am hitting
-                    shootHit = hits[i];
-                    if (partsPickup = shootHit.collider.gameObject.GetComponent<Parts>())
+                    Debug.Log(hits[i].name); //to check what i am hitting
+                    Parts partsPickup = hits[i].GetComponent<Parts>();
+                    if (partsPickup)
                     {
                         partsPickup.SeekPlayer();
                     }
@@ -195,6 +188,17 @@ namespace Player
         public void DamageByMeme()
         {
             curHealth -= 25;
+        }
+        public void Invincible()
+        {
+            if (playerMoveScript.dashing)
+            {
+                invincible = true;
+            }
+            else
+            {
+                invincible = false;
+            }
         }
     }
 }
