@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd327c4794d4ce4f87afd8ffb9319f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceSpeed: 40
+  forceSpeed: 35
   target: {fileID: 0}
   value: 10
   melted: {fileID: 1515764561471154, guid: 479f1665a28aa3740973f818073cb821, type: 2}

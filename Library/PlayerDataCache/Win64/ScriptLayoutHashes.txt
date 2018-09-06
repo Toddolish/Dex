@@ -132,7 +132,7 @@ e7489514a648ce787e3e741d97e0f561 Assembly-CSharp.dll:UnityStandardAssets.Utility
 07929001711f159049405014973fc876 Assembly-CSharp.dll:.CameraZoomFollow
 9e22522468f80380cbfb67c5823c7a50 Assembly-CSharp.dll:.SwarmBot
 3144c16c61f74ef6ae317f0f902e8ab5 Assembly-CSharp.dll:.MemeBot
-9a4818ef888f5b174a6768ad8a5dbb48 Assembly-CSharp.dll:Player.PlayerStats
+304eb589bfb40744f5b0dce425c3da73 Assembly-CSharp.dll:Player.PlayerStats
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 20eb563c55cb94338c585784f330bd4b Assembly-CSharp.dll:.Parts
@@ -182,6 +182,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 b3fd60812434d68ab452037992de7c6b Assembly-CSharp.dll:.SceneManagement
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
+ed2d0a01c49722cd03b3b213072dd77e Assembly-CSharp.dll:.PickupSpawner
 5a11340e0fa9e5a7095c9b00f785377c Assembly-CSharp.dll:.PlayerRotation
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
