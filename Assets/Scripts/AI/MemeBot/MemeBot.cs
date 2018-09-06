@@ -16,7 +16,7 @@ public class MemeBot : MonoBehaviour
     public float playerDamage = 1f;
     public bool canAttack = true;
     public float damage = 25f;
-
+    private Transform destination;
 
 
     [Header("References")]
@@ -37,6 +37,7 @@ public class MemeBot : MonoBehaviour
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
@@ -63,12 +64,14 @@ public class MemeBot : MonoBehaviour
             Attack();
 
         }
+        //if cool down is more than 0, can't attack and start cooling down
         if (coolDown > 0)
         {
             canAttack = false;
             coolDown -= Time.deltaTime;
         }
         #endregion
+        //if current health is 0 or less, destroy self and spawn particles
         if (currentHealth <= 0f)
         {
             Destroy(gameObject);
@@ -90,15 +93,16 @@ public class MemeBot : MonoBehaviour
         if (coolDown <= 0)
         {
             canAttack = true;
+
             GameObject tempprojectile = Instantiate(projectile, holder[currentHolder].position, holder[currentHolder].rotation) as GameObject;
             Rigidbody tempRigidBodyProjectile = tempprojectile.GetComponent<Rigidbody>();
-            tempRigidBodyProjectile.AddForce(tempRigidBodyProjectile.transform.forward * projectileSpeed);
+            tempRigidBodyProjectile.AddForce(holder[currentHolder].transform.forward * projectileSpeed);
             coolDown = 1.5f;
             currentHolder++;
             if (currentHolder >= 3)
             {
                 currentHolder = 0;
-  }
+            }
 
         }
 
