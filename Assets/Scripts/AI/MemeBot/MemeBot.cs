@@ -29,15 +29,12 @@ public class MemeBot : MonoBehaviour
     public enum behaviour { attack, seek }
     public NavMeshAgent memeBot;
 
-
-
-
+    
     // Use this for initialization
     void Start()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
-
     }
 
     // Update is called once per frame
@@ -46,7 +43,9 @@ public class MemeBot : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance > chasingRange)
-        { Seek(); }
+        {
+            Seek();
+        }
         if (distance < chasingRange)
         {
             memeBot.SetDestination(transform.position);
@@ -77,7 +76,6 @@ public class MemeBot : MonoBehaviour
             Destroy(gameObject);
             Instantiate(particle, transform.position, transform.rotation);
         }
-
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -85,7 +83,6 @@ public class MemeBot : MonoBehaviour
         {
             currentHealth -= currentHealth;
         }
-
     }
     void Attack()
     {
@@ -103,15 +100,10 @@ public class MemeBot : MonoBehaviour
             {
                 currentHolder = 0;
             }
-
         }
-
     }
     void Seek()
     {
         memeBot.SetDestination(target.position);
-
     }
-
-
 }

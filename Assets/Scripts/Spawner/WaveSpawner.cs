@@ -16,6 +16,9 @@ public class WaveSpawner : MonoBehaviour
         public Transform enemy;
         public int count;
         public float rate;
+
+        public Transform enemy2;
+        public int count2;
     }
     public Text waveText;
     public int waveCount;
@@ -120,6 +123,11 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1f/ _wave.rate); //wait for the amount of seconds
         }
+         for (int i = 0; i < _wave.count2; i++)
+        {
+            SpawnEnemy2(_wave.enemy2);
+            yield return new WaitForSeconds(1f/ _wave.rate); //wait for the amount of seconds
+        }
 
         state = SpawnState.WAITING;
 
@@ -130,6 +138,12 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("spawning enemy" + _enemy.name);
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+    }
+    void SpawnEnemy2(Transform _enemy2)
+    {
+        Debug.Log("spawning enemy" + _enemy2.name);
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_enemy2, _sp.position, _sp.rotation);
     }
     public void ProgressionEvents()
     {

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114423972578341876}
   - component: {fileID: 54664739920469262}
   m_Layer: 0
-  m_Name: Memebot_Projectile
+  m_Name: MemeBot_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
