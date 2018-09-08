@@ -9,29 +9,20 @@ public class Memebot_Projectile : MonoBehaviour
     PlayerStats playerStatsScript;
     public ParticleSystem particle;
 
-
     public void Start()
     {
         player = GameObject.Find("Player");
         playerStatsScript = player.GetComponent<PlayerStats>();
-
     }
 
     public void OnTriggerEnter(Collider collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
-
             playerStatsScript.DamageByMeme();
-
         }
-
-
-
         Destroy(gameObject);
         Instantiate(particle, transform.position, transform.rotation);
-
     }
 
 }

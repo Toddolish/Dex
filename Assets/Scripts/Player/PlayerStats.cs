@@ -72,7 +72,10 @@ namespace Player
             #region Health
             hpBar.fillAmount = (curHealth / 100);
             xHealthBar.fillAmount = (xHealth / 100);
-
+            if(curHealth > maxHealth)
+            {
+                curHealth = maxHealth;
+            }
             if (xHealth > curHealth)
             {
                 xHealth -= Time.deltaTime * xReductionSpeed;

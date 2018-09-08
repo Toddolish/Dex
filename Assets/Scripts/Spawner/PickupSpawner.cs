@@ -12,20 +12,18 @@ public class PickupSpawner : MonoBehaviour
     [Header("Spawner Values")]
     [SerializeField]float spawnTime;
     public float timer;
-    public float min;
-    public float max;
-    public bool spawn;
+    public bool SlotFull = false;
 
     [Header("Is this a Health spawner or an Energy spawner.")]
     public bool energySpawner;
 
     void Start()
     {
+
     }
     
     void Update()
     {
-        spawnTime = Random.Range(min, max);
         timer += Time.deltaTime;
         if (energySpawner)
         {
@@ -44,14 +42,32 @@ public class PickupSpawner : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Health" || other.gameObject.tag == "Health")
+        {
+            SlotFull = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Health" || other.gameObject.tag == "Health")
+        {
+            SlotFull = false;
+        }
+    }
     void Energy()
     {
-        Instantiate(EnergyPickup, spawnPoint.position, spawnPoint.rotation);
-        spawnTime = Random.Range(min, max);
+        if(!SlotFull)
+        {
+            Instantiate(EnergyPickup, spawnPoint.position, spawnPoint.rotation);
+        }
     }
     void Health()
     {
-        Instantiate(HealthPickup, spawnPoint.position, spawnPoint.rotation);
-        spawnTime = Random.Range(min, max);
+        if(!SlotFull)
+        {
+            Instantiate(HealthPickup, spawnPoint.position, spawnPoint.rotation);
+        }
     }
 }

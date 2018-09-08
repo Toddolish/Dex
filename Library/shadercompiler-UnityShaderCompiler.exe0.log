@@ -1,144 +1,76 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-Cmd: preprocess
-  insize=3078 outsize=304 ok=1
-Cmd: preprocess
-  insize=6536 outsize=3109 ok=1
-Cmd: preprocessCompute
-  insize=2053 outsize=2059 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=2059 outsize=1517 ok=1
-Cmd: preprocess
-  insize=11491 outsize=934 ok=1
-Cmd: preprocess
-  insize=1521 outsize=219 ok=1
-Cmd: preprocessCompute
-  insize=1170 outsize=1176 ok=1
-Cmd: preprocessCompute
-  insize=2774 outsize=2780 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=2780 outsize=47805 ok=1
-Cmd: preprocessCompute
-  insize=7324 outsize=7330 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=7330 outsize=9677 ok=1
-Cmd: preprocess
-  insize=1181 outsize=305 ok=1
-Cmd: preprocess
-  insize=10993 outsize=213 ok=1
-Cmd: preprocess
-  insize=818 outsize=376 ok=1
-Cmd: preprocess
-  insize=1802 outsize=304 ok=1
-Cmd: preprocessCompute
-  insize=4996 outsize=5004 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=5004 outsize=3733 ok=1
-Cmd: preprocess
-  insize=1525 outsize=387 ok=1
-Cmd: preprocess
-  insize=2476 outsize=831 ok=1
-Cmd: preprocessCompute
-  insize=2347 outsize=2351 ok=1
-Cmd: preprocess
-  insize=942 outsize=469 ok=1
-Cmd: preprocess
-  insize=6092 outsize=364 ok=1
-Cmd: preprocess
-  insize=597 outsize=216 ok=1
-Cmd: preprocess
-  insize=1656 outsize=351 ok=1
-Cmd: preprocess
-  insize=2378 outsize=1060 ok=1
-Cmd: preprocess
-  insize=5130 outsize=3777 ok=1
-Cmd: preprocessCompute
-  insize=9154 outsize=9166 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=9166 outsize=8665 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=9166 outsize=8909 ok=1
-Cmd: preprocess
-  insize=797 outsize=436 ok=1
-Cmd: preprocess
-  insize=3209 outsize=790 ok=1
-Cmd: preprocess
-  insize=2236 outsize=943 ok=1
-Cmd: preprocessCompute
-  insize=5431 outsize=5435 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=5435 outsize=6445 ok=1
-Cmd: preprocess
-  insize=1024 outsize=314 ok=1
-Cmd: preprocess
-  insize=7150 outsize=398 ok=1
-Cmd: preprocess
-  insize=2404 outsize=1061 ok=1
-Cmd: preprocessCompute
-  insize=2861 outsize=2867 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=2867 outsize=1329 ok=1
-Cmd: preprocessCompute
-  insize=1800 outsize=1806 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=1806 outsize=1389 ok=1
-Cmd: preprocess
-  insize=514 outsize=1317 ok=1
-Cmd: preprocess
-  insize=1606 outsize=221 ok=1
-Cmd: preprocess
-  insize=3571 outsize=223 ok=1
-Cmd: preprocess
-  insize=826 outsize=398 ok=1
-Cmd: preprocess
-  insize=925 outsize=365 ok=1
-Cmd: preprocess
-  insize=11969 outsize=996 ok=1
-Cmd: preprocess
-  insize=1454 outsize=397 ok=1
-Cmd: preprocess
-  insize=1070 outsize=1436 ok=1
-Cmd: preprocess
-  insize=6016 outsize=1252 ok=1
-Cmd: preprocess
-  insize=1107 outsize=393 ok=1
-Cmd: preprocess
-  insize=2273 outsize=1004 ok=1
-Cmd: preprocess
-  insize=1133 outsize=389 ok=1
-Cmd: preprocess
-  insize=1442 outsize=1162 ok=1
-Cmd: preprocess
-  insize=3070 outsize=1373 ok=1
-Cmd: preprocess
-  insize=1121 outsize=358 ok=1
-Cmd: preprocess
-  insize=2921 outsize=521 ok=1
-Cmd: preprocess
-  insize=3632 outsize=364 ok=1
-Cmd: preprocessCompute
-  insize=1448 outsize=1454 ok=1
-Cmd: preprocess
-  insize=584 outsize=581 ok=1
-Cmd: preprocessCompute
-  insize=1631 outsize=1635 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=1635 outsize=1013 ok=1
-Cmd: preprocess
-  insize=2762 outsize=506 ok=1
-Cmd: preprocess
-  insize=563 outsize=231 ok=1
-Cmd: preprocess
-  insize=3924 outsize=372 ok=1
-Cmd: preprocess
-  insize=2609 outsize=220 ok=1
-Cmd: preprocess
-  insize=756 outsize=344 ok=1
-Cmd: preprocess
-  insize=1979 outsize=735 ok=1
-Cmd: preprocess
-  insize=1344 outsize=291 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: compileSnippet
+  api=4 type=0 insize=1564 outsize=1894 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL LIGHTPROBE_SH _EMISSION _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1564 outsize=6962 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL LIGHTPROBE_SH _EMISSION _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1426 outsize=1918 kw=UNITY_PASS_FORWARDADD POINT _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1426 outsize=3818 kw=UNITY_PASS_FORWARDADD POINT _ALPHAPREMULTIPLY_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler

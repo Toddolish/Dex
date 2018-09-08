@@ -11,33 +11,19 @@ public class SceneManagement : MonoBehaviour
     public GameObject statsDisplay;
     public GameObject tutorialPanel;
 
-
     private void Awake()
     {
-        if (tutorialPanel.activeSelf == true)
+        tutorialPanel.SetActive(false);
+        PlayerPrefs.GetInt("tutorialComplete");
+        if (PlayerPrefs.GetInt("tutorialComplete") != 1)
         {
-            // Debug.Log()
             Time.timeScale = 0;
             tutorialPanel.SetActive(true);
         }
     }
-    private void Start()
-    {
-       // Time.timeScale = 1;
-
-    }
-
     private void Update()
     {
-       // int hasPlayed = PlayerPrefs.GetInt("HasPlayed", 0);
-       // if (PlayerPrefs.GetInt("HasPlayed") == 0)
-       
-        if (Input.GetKeyDown(KeyCode.Escape))
-            if (paused)
-            {
-                Continue();
-            }
-            else Pause();
+        Inputs();
     }
     public void Pause()
     {
@@ -48,13 +34,12 @@ public class SceneManagement : MonoBehaviour
     }
     public void Continue()
     {
-        PlayerPrefs.SetInt("HasPlayed", 1);
         pausePanel.SetActive(false);
         statsDisplay.SetActive(true);
         paused = false;
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("tutorialComplete", 1);
     }
-
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -63,12 +48,25 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
     public void ExitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+    public void Inputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            if (paused)
+            {
+                Continue();
+            }
+            else Pause();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }
