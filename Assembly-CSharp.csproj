@@ -145,6 +145,12 @@
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>F:/TAFE/CertificateIV Programming/Game/Dex/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>F:/TAFE/CertificateIV Programming/Game/Dex/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>F:/TAFE/CertificateIV Programming/Game/Dex/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>F:/TAFE/CertificateIV Programming/Game/Dex/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
