@@ -28,6 +28,7 @@ public class MemeBot : MonoBehaviour
     public ParticleSystem particle;
     public enum behaviour { attack, seek }
     public NavMeshAgent memeBot;
+    public GameObject[] pickUps;
 
     
     // Use this for initialization
@@ -75,6 +76,7 @@ public class MemeBot : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(particle, transform.position, transform.rotation);
+            Instantiate(pickUps[Random.Range(0, 4)], transform.position, transform.rotation);
         }
     }
     private void OnTriggerEnter(Collider collision)

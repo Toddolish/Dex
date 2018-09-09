@@ -25,6 +25,7 @@ public class GyroBot : MonoBehaviour
     public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
     public float hackedTimer;
     public float hackedLength;
+    public AudioClip pulledSound;
     bool seekTime;
 
     [Header("MATERIALS")]
@@ -38,6 +39,9 @@ public class GyroBot : MonoBehaviour
     public float attackCooldownSpeed;
 
 
+    AudioSource source;
+
+
     void Start()
     {
         curHealth = maxHealth;
@@ -49,6 +53,8 @@ public class GyroBot : MonoBehaviour
         eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
         Flare = gameObject.transform.GetChild(2).GetComponentInChildren<ParticleSystem>();
         eyeRend.material = neonOrange;
+
+        source = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -84,6 +90,7 @@ public class GyroBot : MonoBehaviour
         agent.SetDestination(target.position);
         transform.LookAt(target); //always face the player target
 
+
         if (!readyToAttack) //cannot damage player until (ReadyToAttack = true)
         {
             timer += Time.deltaTime;
@@ -103,6 +110,7 @@ public class GyroBot : MonoBehaviour
             gyroBlade.tag = ("Blade");
             eyeRend.material = neonBlue;
             hackedTimer += Time.deltaTime;
+
             if (hackedTimer > hackedLength)
             {
                 //agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
@@ -122,6 +130,7 @@ public class GyroBot : MonoBehaviour
             rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse); //burst forward towards player
             modeHacked = true; //Activate hacked mode
             seekTime = false; //deactivate seek mode
+            source.PlayOneShot(pulledSound);
         }
     }
     void Explode()

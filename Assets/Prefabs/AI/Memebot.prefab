@@ -493,6 +493,12 @@ MonoBehaviour:
   - {fileID: 4223284758865206}
   particle: {fileID: 198365490574888780, guid: 46d66807ebd12be498da62059cfe6d15, type: 2}
   memeBot: {fileID: 195131103977989102}
+  pickUps:
+  - {fileID: 1893769895027260, guid: ed594ad394c1bd5418ee25a3ae517996, type: 2}
+  - {fileID: 100002, guid: a961a43968fadf1499c231eda29f599f, type: 3}
+  - {fileID: 100000, guid: 697a732eeb8514444b0448f0e7a0cff4, type: 3}
+  - {fileID: 1435402898862680, guid: df26cd812cd85174ab53687b1fe9a1c3, type: 2}
+  - {fileID: 100002, guid: 08a9df63e31309949aaff4b5f203f650, type: 3}
 --- !u!114 &114593331024480784
 MonoBehaviour:
   m_ObjectHideFlags: 1
