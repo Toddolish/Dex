@@ -13,8 +13,13 @@ public class Memebot_Projectile : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerStatsScript = player.GetComponent<PlayerStats>();
+    //    Physics.IgnoreLayerCollision(10, 30,true);
     }
 
+    public void Update()
+    {
+
+    }
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")

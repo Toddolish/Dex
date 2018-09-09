@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135632492421246280}
   - component: {fileID: 114423972578341876}
   - component: {fileID: 54664739920469262}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: MemeBot_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

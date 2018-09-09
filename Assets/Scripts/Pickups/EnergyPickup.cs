@@ -9,6 +9,8 @@ public class EnergyPickup : MonoBehaviour
     public float forceSpeed;
     public Transform target;
     bool seekTime;
+    public ParticleSystem particles;
+    
 
     PlayerStats playerStats;
     void Start()
@@ -34,7 +36,9 @@ public class EnergyPickup : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerStats.curEnergy += 100;
+            Instantiate(particles, target.transform);
             Destroy(this.gameObject);
+
         }
     }
 }

@@ -8,6 +8,7 @@ public class HealthPickup : MonoBehaviour
     Rigidbody rb;
     public float forceSpeed;
     public Transform target;
+    public ParticleSystem particle;
     
     public bool modeHacked;
     float hackedTimer;
@@ -38,7 +39,9 @@ public class HealthPickup : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerStats.curHealth += 25;
+            Instantiate(particle, target.transform);
             Destroy(this.gameObject);
+            
         }
     }
 }

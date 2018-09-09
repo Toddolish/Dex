@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33985556007531446}
   - component: {fileID: 23359654702874478}
   - component: {fileID: 114593331024480784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33600564199341378}
   - component: {fileID: 23834515534010896}
   - component: {fileID: 135715434347458110}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33204666851434376}
   - component: {fileID: 23401668879986198}
   - component: {fileID: 114651481613540086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114233026373967086}
   - component: {fileID: 195131103977989102}
   - component: {fileID: 54575068499352146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Memebot
   m_TagString: MemeBot
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 33727654453878852}
   - component: {fileID: 23883895070789382}
   - component: {fileID: 114819469583743890}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4350882210725940}
   - component: {fileID: 108355217936122250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

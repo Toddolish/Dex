@@ -52,7 +52,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - EnemyProjectile
   - 
   m_SortingLayers:
   - name: Default

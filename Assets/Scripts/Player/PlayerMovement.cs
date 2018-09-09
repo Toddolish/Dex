@@ -22,6 +22,7 @@ namespace Player
         public float dashConsuption;// the amount of energy taken when is dashing
         public GameObject dashRange; //enable dashRange to destroy swarmBots
 
+
         [Header("COOLDOWN")]
         public float maxCooldown;
         public bool startCooldown;
@@ -67,12 +68,13 @@ namespace Player
                 dashParticle.Emit(5);
                 if (timer > dashDistance)
                 {
-                    dashRange.SetActive(false);
                     originalSpeed = movementSpeed;
                     dashing = false;
                     //col.isTrigger = false;
                     col.radius = 0.5f;
+
                 }
+
             }
         }
         public void StartDash()
