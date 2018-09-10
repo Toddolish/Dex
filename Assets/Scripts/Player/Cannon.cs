@@ -29,6 +29,7 @@ public class Cannon : MonoBehaviour
     //bot
     GyroBot gyroScript;
     SwarmBot swarmBot;
+    MemeBot memeBot;
 
     //pickup
     HealthPickup healthPickup;
@@ -107,6 +108,10 @@ public class Cannon : MonoBehaviour
                 if (partsPickup = shootHit.collider.gameObject.GetComponent<Parts>())
                 {
                     partsPickup.SeekPlayer();
+                }
+                if (memeBot = shootHit.collider.gameObject.GetComponent<MemeBot>())
+                {
+                    memeBot.SeekPlayer();
                 }
             }
         }

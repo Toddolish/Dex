@@ -29,6 +29,18 @@ namespace Player
         public bool waitForRegen;
         Image xEnergyBar; 
         Image energyBar;
+        #endregion
+        #region DarkDex
+        [Header("DarkDex")]
+        public float curDarkDex;
+        public float maxDarkDex;
+        public float xDarkDex; //the health behind the health to show indication of how much health you lost
+        public float darkDexRegenSpeed; //the speed of the regeneration
+        public float maxDarkDexRegenTime; //how long it takes after dash before start regeneration
+        public float darkDexTimerSpeed;
+        public float darkDexTimer;
+        Image xDarkDexBar;
+        Image darkDexBar;
 #endregion
 
         public bool invincible;

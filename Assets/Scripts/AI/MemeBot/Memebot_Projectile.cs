@@ -8,12 +8,13 @@ public class Memebot_Projectile : MonoBehaviour
     public GameObject player;
     PlayerStats playerStatsScript;
     public ParticleSystem particle;
+    //LayerMask Ignorelayers;
 
     public void Start()
     {
         player = GameObject.Find("Player");
         playerStatsScript = player.GetComponent<PlayerStats>();
-    //    Physics.IgnoreLayerCollision(10, 30,true);
+        //Physics.IgnoreLayerCollision(10, 30,true);
     }
 
     public void Update()
@@ -25,8 +26,13 @@ public class Memebot_Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerStatsScript.DamageByMeme();
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "wall")
+        {
+            Destroy(gameObject);
+        }
+        //Destroy(gameObject);
         Instantiate(particle, transform.position, transform.rotation);
     }
 

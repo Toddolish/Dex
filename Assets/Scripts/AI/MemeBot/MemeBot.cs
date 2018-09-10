@@ -29,12 +29,28 @@ public class MemeBot : MonoBehaviour
     public enum behaviour { attack, seek }
     public NavMeshAgent memeBot;
     public GameObject[] pickUps;
+    Rigidbody rb;
 
-    
+    #region Hacked
+    [Header("HACKED")]
+    public float forceSpeed;
+    public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
+    public float hackedTimer;
+    public float hackedLength;
+    bool seekTime;
+
+    //[Header("MATERIALS")]
+    //MeshRenderer eyeRend;
+    //public Material neonBlue;//eye colour when hacked by player
+    //public Material neonOrange;//eye colour when hunting player
+    #endregion
+
+
     // Use this for initialization
     void Start()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
     }
 
@@ -78,6 +94,7 @@ public class MemeBot : MonoBehaviour
             Instantiate(particle, transform.position, transform.rotation);
             Instantiate(pickUps[Random.Range(0, 4)], transform.position, transform.rotation);
         }
+        Hacked();
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -107,5 +124,25 @@ public class MemeBot : MonoBehaviour
     void Seek()
     {
         memeBot.SetDestination(target.position);
+    }
+    void Hacked()
+    {
+        if (modeHacked)
+        {
+            //eyeRend.material = neonBlue;
+            hackedTimer += Time.deltaTime;
+            if (hackedTimer > hackedLength)
+            {
+                modeHacked = false;
+                //eyeRend.material = neonOrange;
+                transform.LookAt(target);
+                hackedTimer = 0;
+            }
+        }
+    }
+    public void SeekPlayer()
+    {
+        rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
+        modeHacked = true;
     }
 }

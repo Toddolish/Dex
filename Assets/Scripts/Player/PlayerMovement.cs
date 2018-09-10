@@ -70,9 +70,9 @@ namespace Player
                 {
                     originalSpeed = movementSpeed;
                     dashing = false;
+                    dashRange.SetActive(false);
                     //col.isTrigger = false;
                     col.radius = 0.5f;
-
                 }
 
             }

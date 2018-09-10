@@ -43,10 +43,12 @@ public class SceneManagement : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
     public void LoadScene1()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
     public void ExitGame()
     {

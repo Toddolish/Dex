@@ -21,6 +21,7 @@ TagManager:
   - Nut
   - Bolt
   - SlotFull
+  - DarkDex
   layers:
   - Default
   - TransparentFX
