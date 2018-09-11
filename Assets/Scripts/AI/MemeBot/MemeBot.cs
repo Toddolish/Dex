@@ -100,6 +100,7 @@ public class MemeBot : MonoBehaviour
     {
         if (collision.transform.tag == "Blade")
         {
+            FindObjectOfType<AudioManager>().Play("meme");
             currentHealth -= currentHealth;
         }
     }

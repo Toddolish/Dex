@@ -9,8 +9,8 @@ public class PickupSpawner : MonoBehaviour
     public GameObject pickup;
 
     [Header("Spawner Values")]
-    [SerializeField] float spawnTime;
-    public float timer;
+    public float spawnTime;
+    float timer;
     public bool SlotFull = false;
 
     void Update()
@@ -41,6 +41,7 @@ public class PickupSpawner : MonoBehaviour
         if(!SlotFull)
         {
             Instantiate(pickup, spawnPoint.position, spawnPoint.rotation);
+            timer = 0; ;
         }
     }
 }

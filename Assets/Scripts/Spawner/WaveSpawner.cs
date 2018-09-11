@@ -19,6 +19,9 @@ public class WaveSpawner : MonoBehaviour
 
         public Transform enemy2;
         public int count2;
+
+        public Transform enemy3;
+        public int count3;
     }
     public Text waveText;
     public int waveCount;
@@ -128,6 +131,11 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy2(_wave.enemy2);
             yield return new WaitForSeconds(1f/ _wave.rate); //wait for the amount of seconds
         }
+        for (int i = 0; i < _wave.count3; i++)
+        {
+            SpawnEnemy3(_wave.enemy3);
+            yield return new WaitForSeconds(1f / _wave.rate); //wait for the amount of seconds
+        }
 
         state = SpawnState.WAITING;
 
@@ -145,19 +153,14 @@ public class WaveSpawner : MonoBehaviour
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy2, _sp.position, _sp.rotation);
     }
+    void SpawnEnemy3(Transform _enemy3)
+    {
+        //Debug.Log("spawning enemy" + _enemy2.name);
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_enemy3, _sp.position, _sp.rotation);
+    }
     public void ProgressionEvents()
     {
-        if(goldTime == false)
-        {
-            if (waveCount == 5)
-            {
-                //dust storm
-                //maybe even do something cool to the blade
-                Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Instantiate(goldSwarmBot, _sp.position, _sp.rotation);
-                goldTime = true;
-            }
-        }
         if (dustTime == false)
         {
             if (waveCount == 7)
@@ -165,27 +168,9 @@ public class WaveSpawner : MonoBehaviour
                 dustStorm.Play();
             }
         }
-        if (goldTime2 == false)
+        if (waveCount == 9)
         {
-            if (waveCount == 10)
-            {
-                //dust storm
-                //maybe even do something cool to the blade
-                Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Instantiate(goldSwarmBot, _sp.position, _sp.rotation);
-                goldTime2 = true;
-            }
-        }
-        if (goldTime3 == false)
-        {
-            if (waveCount == 15)
-            {
-                //dust storm
-                //maybe even do something cool to the blade
-                Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Instantiate(goldSwarmBot, _sp.position, _sp.rotation);
-                goldTime3 = true;
-            }
+            dustStorm.Stop();
         }
     }
 }

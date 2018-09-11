@@ -26,11 +26,13 @@ public class GyroBot : MonoBehaviour
     public float hackedTimer;
     public float hackedLength;
     bool seekTime;
+    public MeshRenderer bladeRenderer;
 
     [Header("MATERIALS")]
     MeshRenderer eyeRend;
     public Material neonBlue;//eye colour when hacked by player
     public Material neonOrange;//eye colour when hunting player
+    public Material neonDarkDexPurple;
 
     [Header("ATTACK")]
     public bool readyToAttack = true;
@@ -107,7 +109,16 @@ public class GyroBot : MonoBehaviour
             //agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
             //agent.avoidancePriority = 99;
             gyroBlade.tag = ("Blade");
-            eyeRend.material = neonBlue;
+            if (!playerStats.darkDexMode)
+            {
+                eyeRend.material = neonBlue;
+                bladeRenderer.material = neonBlue;
+            }
+            if (playerStats.darkDexMode)
+            {
+                eyeRend.material = neonDarkDexPurple;
+                bladeRenderer.material = neonDarkDexPurple;
+            }
             hackedTimer += Time.deltaTime;
 
             if (hackedTimer > hackedLength)
@@ -117,6 +128,7 @@ public class GyroBot : MonoBehaviour
                 gyroBlade.tag = ("safe");
                 modeHacked = false;
                 eyeRend.material = neonOrange;
+                bladeRenderer.material = neonOrange;
                 transform.LookAt(target);
                 hackedTimer = 0;
             }

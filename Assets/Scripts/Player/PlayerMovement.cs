@@ -110,6 +110,7 @@ namespace Player
             { 
                 if (mystats.curEnergy > 0)
                 {
+                    FindObjectOfType<AudioManager>().Play("dash");
                     timer = 0;
                     dashing = true;
                     startCooldown = true;
