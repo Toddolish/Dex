@@ -13,12 +13,13 @@ namespace Player
         public float gravity;
 
         [Header("DASHING")]
-        [Range(0.1f,2)]
+        [Range(0.1f, 2)]
         public float dashDistance;
         public bool dashing;
         public float timer;
         CapsuleCollider col;
         public ParticleSystem dashParticle;
+        public ParticleSystem darkDashParticle;
         public float dashConsuption;// the amount of energy taken when is dashing
         public GameObject dashRange; //enable dashRange to destroy swarmBots
 
@@ -30,6 +31,13 @@ namespace Player
 
         Rigidbody rb;
         PlayerStats mystats;
+        [Header("Materials")]
+        public Material defaultBlue;
+        public Material DarkDexPurple;
+        [Header("Renderers")]
+        public MeshRenderer topBody;
+        public MeshRenderer lowerBody;
+        public MeshRenderer cannon;
 
         void Start()
         {
@@ -46,12 +54,24 @@ namespace Player
             float hor = Input.GetAxis("Horizontal") * Time.deltaTime;
             float ver = Input.GetAxis("Vertical") * Time.deltaTime;
             this.gameObject.transform.Translate(hor * originalSpeed, 0, ver * originalSpeed);
-            dashParticle = GameObject.Find("Dash_Particle").GetComponent<ParticleSystem>();
             Dash();
             DashCooldown();
         }
         private void Update()
         {
+            if (mystats.darkDexMode)
+            {
+                topBody.material = DarkDexPurple;
+                lowerBody.material = DarkDexPurple;
+                cannon.material = DarkDexPurple;
+                //dashParticle.startColor = Color.cyan;
+            }
+            else if (!mystats.darkDexMode)
+            {
+                topBody.material = defaultBlue;
+                lowerBody.material = defaultBlue;
+                cannon.material = defaultBlue;
+            }
             if (!startCooldown)
             {
                 StartDash();
@@ -65,7 +85,14 @@ namespace Player
                 col.radius = 0.5f; //clean this witha float string please todd
                 timer += Time.deltaTime;
                 originalSpeed = dashSpeed;
-                dashParticle.Emit(5);
+                if (mystats.darkDexMode)
+                {
+                    darkDashParticle.Emit(5);
+                }
+                if (!mystats.darkDexMode)
+                {
+                    dashParticle.Emit(5);
+                }
                 if (timer > dashDistance)
                 {
                     originalSpeed = movementSpeed;

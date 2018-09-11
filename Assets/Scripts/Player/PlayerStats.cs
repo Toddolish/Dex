@@ -31,17 +31,18 @@ namespace Player
         Image energyBar;
         #endregion
         #region DarkDex
-        [Header("DarkDex")]
+        [Header("DARK DEX")]
         public float curDarkDex;
         public float maxDarkDex;
         public float xDarkDex; //the health behind the health to show indication of how much health you lost
-        public float darkDexRegenSpeed; //the speed of the regeneration
-        public float maxDarkDexRegenTime; //how long it takes after dash before start regeneration
+        public float darkDexReductionSpeed;
         public float darkDexTimerSpeed;
         public float darkDexTimer;
         Image xDarkDexBar;
         Image darkDexBar;
-#endregion
+
+        public bool darkDexMode = false;
+        #endregion
 
         public bool invincible;
         PlayerMovement playerMoveScript;
@@ -77,6 +78,14 @@ namespace Player
             xEnergyBar = GameObject.Find("EnergyBar_Mid").GetComponent<Image>();
 
             #endregion
+            #region DarkDex
+            xDarkDex = maxDarkDex;
+            curDarkDex = maxDarkDex;
+            darkDexBar = GameObject.Find("DarkEnergyBar").GetComponent<Image>();
+            xDarkDexBar = GameObject.Find("DarkEnergyBar_Mid").GetComponent<Image>();
+            curDarkDex = 0;
+
+            #endregion
         }
         void Update()
         {
@@ -99,11 +108,9 @@ namespace Player
             GameOver();
             #endregion
             #region Energy
-            //
             energyBar.fillAmount = (curEnergy / 100);
             xEnergyBar.fillAmount = (xEnergy / 100);
-
-            //
+            
             if (xEnergy > curEnergy)
             {
                 xEnergy -= Time.deltaTime * xReductionSpeed;
@@ -142,6 +149,28 @@ namespace Player
             {
                 energyTimer = maxEnergyRegenTime;
             }
+            #endregion
+            #region DarkDex
+
+            //set the 1.0 slider volume so it can scale with 100.0 value of cur and x
+            darkDexBar.fillAmount = (curDarkDex / 200);
+            xDarkDexBar.fillAmount = (xDarkDex / 200);
+            
+            //dark dex is  decreasing
+            if(curDarkDex > 0)
+            {
+                curDarkDex -= darkDexReductionSpeed * Time.deltaTime;
+            }
+            if(curDarkDex > maxDarkDex)
+            {
+                curDarkDex = maxDarkDex;
+            }
+            if (curDarkDex < 0)
+            {
+                curDarkDex = 0;
+                darkDexMode = false;
+            }
+
             #endregion
             Invincible();
             Magnet();

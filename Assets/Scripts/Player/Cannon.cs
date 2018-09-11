@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Player;
 
 public class Cannon : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Cannon : MonoBehaviour
     public float range = 100f;
     public float radius;
     public ParticleSystem ShockWave;
+    public ParticleSystem ShockWaveDarkDex;
+    public ParticleSystem DarkDexTrail;
+    PlayerStats playerStats;
 
     [SerializeField] float timer;
     Ray shootRay;
@@ -34,15 +38,27 @@ public class Cannon : MonoBehaviour
     //pickup
     HealthPickup healthPickup;
     EnergyPickup energyPickup;
+    DarkDexPickup darkDexPickup;
     Parts partsPickup;
 
     void Awake()
     {
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         shootableMask = LayerMask.GetMask("Shootable");
         //gunLine = GetComponent<LineRenderer>();
     }
     void Update ()
     {
+        if(playerStats.darkDexMode)
+        {
+            DarkDexTrail.Play();
+            radius = 100;
+        }
+        else if(!playerStats.darkDexMode)
+        {
+            DarkDexTrail.Stop();
+            radius = 5;
+        }
         if (startCooldown)
         {
             //gunLine.material = green;
@@ -66,9 +82,18 @@ public class Cannon : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                ShockWave.Play();
-                startCooldown = true;
-                Shoot();
+                if (playerStats.darkDexMode)
+                {
+                    ShockWaveDarkDex.Play();
+                    startCooldown = true;
+                    Shoot();
+                }
+                if(!playerStats.darkDexMode)
+                {
+                    ShockWave.Play();
+                    startCooldown = true;
+                    Shoot();
+                }
             }
         }
     }
@@ -96,6 +121,10 @@ public class Cannon : MonoBehaviour
                 if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
                 {
                     healthPickup.SeekPlayer();
+                }
+                if (darkDexPickup = shootHit.collider.gameObject.GetComponent<DarkDexPickup>())
+                {
+                    darkDexPickup.SeekPlayer();
                 }
                 if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
                 {

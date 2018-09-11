@@ -41,7 +41,6 @@ public class HealthPickup : MonoBehaviour
             playerStats.curHealth += 25;
             Instantiate(particle, target.transform);
             Destroy(this.gameObject);
-            
         }
     }
 }

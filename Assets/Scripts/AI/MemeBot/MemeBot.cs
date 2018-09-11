@@ -92,7 +92,7 @@ public class MemeBot : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(particle, transform.position, transform.rotation);
-            Instantiate(pickUps[Random.Range(0, 4)], transform.position, transform.rotation);
+            Instantiate(pickUps[Random.Range(0, 2)], transform.position, transform.rotation);
         }
         Hacked();
     }
