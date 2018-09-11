@@ -38,6 +38,7 @@ public class HealthPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Pickup");
             playerStats.curHealth += 25;
             Instantiate(particle, target.transform);
             Destroy(this.gameObject);

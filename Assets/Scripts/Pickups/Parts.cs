@@ -50,6 +50,7 @@ public class Parts : MonoBehaviour
         scoreScript = GameObject.Find("EventManager").GetComponent<ScoreScript>();
         if(other.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Pickup");
             value *= scoreScript.multiplierCount;
             if (goldenPart == true)
             {

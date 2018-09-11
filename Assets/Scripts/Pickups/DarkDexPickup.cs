@@ -38,6 +38,7 @@ public class DarkDexPickup : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Pickup");
             playerStats.curDarkDex = 200;
             playerStats.darkDexMode = true;
             Instantiate(particle, target.transform);

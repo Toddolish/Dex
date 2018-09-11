@@ -99,6 +99,7 @@ public class Cannon : MonoBehaviour
     }
     public void Shoot()
     {
+        FindObjectOfType<AudioManager>().Play("cannon");
         RaycastHit[] hits;
         hits = Physics.SphereCastAll(transform.position, radius, transform.forward, range, shootableMask);
 

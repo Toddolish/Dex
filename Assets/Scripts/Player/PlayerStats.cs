@@ -198,7 +198,7 @@ namespace Player
             {
                 for (int i = 0; i < hits.Length; i++)
                 {
-                    Debug.Log(hits[i].name); //to check what i am hitting
+                    //Debug.Log(hits[i].name); //to check what i am hitting
                     Parts partsPickup = hits[i].GetComponent<Parts>();
                     if (partsPickup)
                     {

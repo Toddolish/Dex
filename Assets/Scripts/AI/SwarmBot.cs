@@ -137,6 +137,7 @@ public class SwarmBot : MonoBehaviour
                 BoltDrop();
                 curHealth = 0;
                 Instantiate(explosionParticle, transform.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("botOverload");
                 Destroy(this.gameObject);
             }
             //swarmBot will drop goldDrops multipliers
@@ -146,6 +147,7 @@ public class SwarmBot : MonoBehaviour
                 GoldDrop();
                 //spawn new cool goldenLava explosion
                 Instantiate(explosionParticle, transform.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("botOverload");
                 Destroy(this.gameObject);
             }
         }

@@ -25,7 +25,6 @@ public class GyroBot : MonoBehaviour
     public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
     public float hackedTimer;
     public float hackedLength;
-    public AudioClip pulledSound;
     bool seekTime;
 
     [Header("MATERIALS")]
@@ -127,10 +126,10 @@ public class GyroBot : MonoBehaviour
     {
         if (seekTime)
         {
+            FindObjectOfType<AudioManager>().Play("gyroPulled");
             rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse); //burst forward towards player
             modeHacked = true; //Activate hacked mode
             seekTime = false; //deactivate seek mode
-            source.PlayOneShot(pulledSound);
         }
     }
     void Explode()

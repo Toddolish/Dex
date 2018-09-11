@@ -371,9 +371,11 @@
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraZoomFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\Cursor.cs" />
+    <Compile Include="Assets\Scripts\Event\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Event\LevelFader.cs" />
     <Compile Include="Assets\Scripts\Event\SceneManagement.cs" />
     <Compile Include="Assets\Scripts\Event\ScoreScript.cs" />
+    <Compile Include="Assets\Scripts\Event\Sound.cs" />
     <Compile Include="Assets\Scripts\Pickups\DarkDexPickup.cs" />
     <Compile Include="Assets\Scripts\Pickups\EnergyPickup.cs" />
     <Compile Include="Assets\Scripts\Pickups\HealthPickup.cs" />

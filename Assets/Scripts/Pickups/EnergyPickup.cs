@@ -35,10 +35,10 @@ public class EnergyPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Pickup");
             playerStats.curEnergy += 100;
             Instantiate(particles, target.transform);
             Destroy(this.gameObject);
-
         }
     }
 }
