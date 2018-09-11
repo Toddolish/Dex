@@ -26,13 +26,10 @@ public class Memebot_Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerStatsScript.DamageByMeme();
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "wall")
-        {
-            Destroy(gameObject);
-        }
-        //Destroy(gameObject);
+
+        Destroy(gameObject);
         Instantiate(particle, transform.position, transform.rotation);
     }
 

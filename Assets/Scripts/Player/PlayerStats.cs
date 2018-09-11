@@ -211,7 +211,7 @@ namespace Player
         {
             if (curHealth <= 0)
             {
-                SceneManager.LoadScene("Prototype");
+                SceneManager.LoadScene("Game");
             }
         }
         public void WaitForEnergyRegen()

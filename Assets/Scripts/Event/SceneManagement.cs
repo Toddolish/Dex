@@ -10,27 +10,49 @@ public class SceneManagement : MonoBehaviour
     public GameObject pausePanel;
     public GameObject statsDisplay;
     public GameObject tutorialPanel;
-
+    public float Tutorialtimer = 5f;
     private void Awake()
+{
+        /*   tutorialPanel.SetActive(false);
+   PlayerPrefs.GetInt("tutorialComplete");
+   if (PlayerPrefs.GetInt("tutorialComplete") != 1)
+   {
+       Time.timeScale = 0;
+       tutorialPanel.SetActive(true);
+    }*/
+
+    }
+    private void Start()
     {
-        tutorialPanel.SetActive(false);
-        PlayerPrefs.GetInt("tutorialComplete");
-        if (PlayerPrefs.GetInt("tutorialComplete") != 1)
-        {
-            Time.timeScale = 0;
-            tutorialPanel.SetActive(true);
-        }
+        tutorialPanel.SetActive(true);
+      
     }
     private void Update()
     {
+        if (Tutorialtimer > 0)
+        {
+            Tutorialtimer -= Time.deltaTime;
+        }
+        if (Tutorialtimer <=0)
+        {
+            tutorialPanel.SetActive(false);
+        }
         Inputs();
+        if (pausePanel.activeSelf == false )
+        {
+            if (Time.timeScale == 0)
+            Continue();
+        }
+
     }
     public void Pause()
     {
+        Time.timeScale = 0;
         pausePanel.SetActive(true);
         statsDisplay.SetActive(false);
         paused = true;
-        Time.timeScale = 0;
+
+
     }
     public void Continue()
     {
@@ -65,6 +87,7 @@ public class SceneManagement : MonoBehaviour
                 Continue();
             }
             else Pause();
+
 
         if (Input.GetKeyDown(KeyCode.P))
         {

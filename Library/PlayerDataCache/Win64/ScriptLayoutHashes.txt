@@ -1,10 +1,11 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/toddw/Desktop/DexGameProject/Dex_V2.7/Dex.exe
+C:/Users/Memia/Desktop/fefef/Dex.exe
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
-Assets/Scenes/Prototype.unity
+Assets/Scenes/Game.unity
 SceneListEnd?
+4206c110c99e43920bbd36a379dec799 ProBuilderCore.dll:ProBuilder.Core.pb_PreferenceDictionary
 410153df6407a5a123cf4dcd4ccb7de8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 a225cc34ee7b5f0b51d003f2b05a6a14 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
 c97706b732fa7d912f8ccb2d66dc1086 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
@@ -194,7 +195,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 6cb8e166eb7b5eba6567fb6b107b6d77 Assembly-CSharp.dll:UnityStandardAssets.Utility.WaypointCircuit
 72a8523b432c0a5317826b7a9e0a0e79 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
-b3fd60812434d68ab452037992de7c6b Assembly-CSharp.dll:.SceneManagement
+9d19bf5c3f6ab6bc8fdb4955f19fdd9a Assembly-CSharp.dll:.SceneManagement
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 9d0b18a0a93c0878167b6b1043a4b7ee Assembly-CSharp.dll:.PickupSpawner
@@ -203,6 +204,15 @@ e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.AlphaButtonClickMask
+28113974052c54ced23fd8f8c73f46ef ProBuilderCore.dll:ProBuilder.Core.pb_BezierShape
+df3e2617afb2be0f56686b7532c80a66 ProBuilderCore.dll:ProBuilder.Core.pb_ColliderBehaviour
+b56e245b0986218b3c14f4831bbbd25f ProBuilderCore.dll:ProBuilder.Core.pb_ColorPalette
+5f4e753c12b65e15a459c3b24b1b67c4 ProBuilderCore.dll:ProBuilder.Core.pb_Entity
+50bec5c2ddded9983a7e50fe223f8672 ProBuilderCore.dll:ProBuilder.Core.pb_LineRenderer
+d9e216d92c887590f7a33898f13b01a5 ProBuilderCore.dll:ProBuilder.Core.pb_Object
+56a21b18fd9cb149bb341be64b2dd06e ProBuilderCore.dll:ProBuilder.Core.pb_PolyShape
+d656507d5834b89c6aba14de349cbb1d ProBuilderCore.dll:ProBuilder.Core.pb_Renderable
+df3e2617afb2be0f56686b7532c80a66 ProBuilderCore.dll:ProBuilder.Core.pb_TriggerBehaviour
 1a90b221dc803408fbafa883c12bcab4 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -245,3 +255,4 @@ c1791db8df7a6d30dc3a3e487bced78b Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 042a1cba7d404d3905e356704489626c Assembly-CSharp.dll:.HealthPickup
 695c9335429d4798b6f74ca73c042ff4 Assembly-CSharp.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.QuitGame
