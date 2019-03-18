@@ -24,7 +24,7 @@ public class HealthPickup : MonoBehaviour
     }
     private void Update()
     {
-        if (seekTime)
+		if (seekTime && playerStats.curHealth != 100)
         {
             transform.LookAt(target);
             transform.position =  Vector3.MoveTowards(transform.position, target.position, forceSpeed * Time.deltaTime);
@@ -32,14 +32,17 @@ public class HealthPickup : MonoBehaviour
     }
     public void SeekPlayer()
     {
-        seekTime = true;
+		if (playerStats.curHealth != 100) 
+		{
+			seekTime = true;
+		}
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player" && playerStats.curHealth != 100)
         {
             FindObjectOfType<AudioManager>().Play("Pickup");
-            playerStats.curHealth += 25;
+            playerStats.curHealth += 50;
             Instantiate(particle, target.transform);
             Destroy(this.gameObject);
         }

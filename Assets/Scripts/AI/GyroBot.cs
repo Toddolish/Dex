@@ -13,7 +13,7 @@ public class GyroBot : MonoBehaviour
 
     NavMeshAgent agent;
     Transform gyroBlade;
-
+    
     [Header("HEALTH")]
     public float curHealth;
     float maxHealth = 100000;
@@ -26,10 +26,12 @@ public class GyroBot : MonoBehaviour
     public float hackedTimer;
     public float hackedLength;
     bool seekTime;
-    public MeshRenderer bladeRenderer;
 
     [Header("MATERIALS")]
-    MeshRenderer eyeRend;
+	public MeshRenderer ringRend;
+    public MeshRenderer eyeRend;
+	public MeshRenderer bladeRenderer;
+    
     public Material neonBlue;//eye colour when hacked by player
     public Material neonOrange;//eye colour when hunting player
     public Material neonDarkDexPurple;
@@ -39,9 +41,7 @@ public class GyroBot : MonoBehaviour
     [SerializeField] float timer;
     public float attackCooldownSpeed;
 
-
     AudioSource source;
-
 
     void Start()
     {
@@ -51,7 +51,6 @@ public class GyroBot : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Player").GetComponent<Transform>();
-        eyeRend = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
         Flare = gameObject.transform.GetChild(2).GetComponentInChildren<ParticleSystem>();
         eyeRend.material = neonOrange;
 
@@ -91,7 +90,6 @@ public class GyroBot : MonoBehaviour
         agent.SetDestination(target.position);
         transform.LookAt(target); //always face the player target
 
-
         if (!readyToAttack) //cannot damage player until (ReadyToAttack = true)
         {
             timer += Time.deltaTime;
@@ -112,10 +110,12 @@ public class GyroBot : MonoBehaviour
             if (!playerStats.darkDexMode)
             {
                 eyeRend.material = neonBlue;
+				ringRend.material = neonBlue;
                 bladeRenderer.material = neonBlue;
             }
             if (playerStats.darkDexMode)
             {
+				ringRend.material = neonDarkDexPurple;
                 eyeRend.material = neonDarkDexPurple;
                 bladeRenderer.material = neonDarkDexPurple;
             }
@@ -127,6 +127,7 @@ public class GyroBot : MonoBehaviour
                 //agent.avoidancePriority = 50;
                 gyroBlade.tag = ("safe");
                 modeHacked = false;
+				ringRend.material = neonOrange;
                 eyeRend.material = neonOrange;
                 bladeRenderer.material = neonOrange;
                 transform.LookAt(target);

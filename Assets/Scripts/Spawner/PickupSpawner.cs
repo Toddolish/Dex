@@ -10,17 +10,21 @@ public class PickupSpawner : MonoBehaviour
 
     [Header("Spawner Values")]
     public float spawnTime;
-    float timer;
+    public float timer;
     public bool SlotFull = false;
-
+	void Awake()
+	{
+		Instantiate(pickup, spawnPoint.position, spawnPoint.rotation);
+	}
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > spawnTime)
-        {
-            Pickup();
-            timer = 0;
-        }
+		timer += Time.deltaTime;
+
+		if (timer > spawnTime)
+		{
+			Pickup();
+			timer = 0;
+		}
     }
     private void OnTriggerStay(Collider other)
     {
@@ -41,7 +45,7 @@ public class PickupSpawner : MonoBehaviour
         if(!SlotFull)
         {
             Instantiate(pickup, spawnPoint.position, spawnPoint.rotation);
-            timer = 0; ;
+            timer = 0; 
         }
     }
 }

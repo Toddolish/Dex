@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e2d86e1580faf4aa94c27dfb69f028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceSpeed: 40
+  forceSpeed: 80
   target: {fileID: 0}
   particle: {fileID: 198740519214061232, guid: 7341c0d286e5add4aac019067c2d21b6, type: 2}
   modeHacked: 0

@@ -22,6 +22,8 @@ TagManager:
   - Bolt
   - SlotFull
   - DarkDex
+  - ShopEnergy
+  - Invincible
   layers:
   - Default
   - TransparentFX

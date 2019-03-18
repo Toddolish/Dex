@@ -23,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
         public Transform enemy3;
         public int count3;
     }
+	[Header("WAVE COMPLETE")]
+	public Animator waveComplete;
     public Text waveText;
     public int waveCount;
     public Wave[] waves;
@@ -47,6 +49,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start ()
     {
+		waveComplete = GameObject.Find("WaveCompleted").GetComponent<Animator>();
         waveCount = 1;
         waveText = GameObject.Find("WaveCount").GetComponent<Text>();
         if (spawnPoints.Length == 0)
@@ -87,6 +90,8 @@ public class WaveSpawner : MonoBehaviour
 	}
     void WaveCompleted()
     {
+		//set wave animation here
+		waveComplete.SetTrigger("Complete");
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
         if(nextWave + 1 > waves.Length - 1)

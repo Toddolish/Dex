@@ -50,7 +50,7 @@ namespace Player
 
         void FixedUpdate()
         {
-            rb.AddForce(-transform.up * gravity, ForceMode.Acceleration);
+			rb.AddForce(-transform.up * gravity, ForceMode.Impulse);
             float hor = Input.GetAxis("Horizontal") * Time.deltaTime;
             float ver = Input.GetAxis("Vertical") * Time.deltaTime;
             this.gameObject.transform.Translate(hor * originalSpeed, 0, ver * originalSpeed);

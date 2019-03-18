@@ -119,9 +119,12 @@ public class Cannon : MonoBehaviour
                 {
                     swarmBot.SeekPlayer();
                 }
-                if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
+				if (healthPickup = shootHit.collider.gameObject.GetComponent<HealthPickup>())
                 {
-                    healthPickup.SeekPlayer();
+					if (playerStats.curHealth != 100) 
+					{
+						healthPickup.SeekPlayer ();
+					}
                 }
                 if (darkDexPickup = shootHit.collider.gameObject.GetComponent<DarkDexPickup>())
                 {
@@ -129,11 +132,10 @@ public class Cannon : MonoBehaviour
                 }
                 if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
                 {
-                    energyPickup.SeekPlayer();
-                }
-                if (energyPickup = shootHit.collider.gameObject.GetComponent<EnergyPickup>())
-                {
-                    energyPickup.SeekPlayer();
+					if (playerStats.curEnergy != 100) 
+					{
+						energyPickup.SeekPlayer ();
+					}
                 }
                 if (partsPickup = shootHit.collider.gameObject.GetComponent<Parts>())
                 {

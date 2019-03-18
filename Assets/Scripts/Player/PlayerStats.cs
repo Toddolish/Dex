@@ -45,6 +45,8 @@ namespace Player
         #endregion
 
         public bool invincible;
+		public bool cannotTakeDamage; // Cannot take damage from gyro
+		public float cannotCooldown = 2;
         PlayerMovement playerMoveScript;
         GyroBot gyroBot;
         Parts partsPickup;
@@ -57,7 +59,6 @@ namespace Player
         RaycastHit shootHit;
         public LayerMask shootableMask;
 #endregion
-
 
         void Start()
         {
@@ -89,7 +90,6 @@ namespace Player
         }
         void Update()
         {
-            
             #region Health
             hpBar.fillAmount = (curHealth / 100);
             xHealthBar.fillAmount = (xHealth / 100);
@@ -105,7 +105,7 @@ namespace Player
                     xHealth = curHealth;
                 }
             }
-            GameOver();
+
             #endregion
             #region Energy
             energyBar.fillAmount = (curEnergy / 100);
@@ -151,7 +151,6 @@ namespace Player
             }
             #endregion
             #region DarkDex
-
             //set the 1.0 slider volume so it can scale with 100.0 value of cur and x
             darkDexBar.fillAmount = (curDarkDex / 200);
             xDarkDexBar.fillAmount = (xDarkDex / 200);
@@ -168,18 +167,26 @@ namespace Player
             if (curDarkDex < 0)
             {
                 curDarkDex = 0;
+				cannotTakeDamage = false;
                 darkDexMode = false;
             }
 
             #endregion
+			ImmortalMode();
+			CannotTakeDamage();
+			GameOver();
             Invincible();
             Magnet();
         }
         private void OnTriggerEnter(Collider player)
         {
             if (player.gameObject.tag == "Blade" || player.gameObject.tag == "safe" || player.gameObject.tag == "Danger") //when gyrobot is hacked he goes into blade mode else he is in safe mode, still dangerous only for player
-            {
-                DamageByGyro();
+			{
+				if (!cannotTakeDamage) 
+				{
+					DamageByGyro ();
+					cannotTakeDamage = true;
+				}
             }
         }
         private void OnDrawGizmos()
@@ -222,27 +229,57 @@ namespace Player
         }
         public void DamageBySwarmBot()
         {
-            curHealth -= 25;
+			if (!cannotTakeDamage) 
+			{
+				curHealth -= 25;
+			}
         }
         public void DamageByGyro()
         {
-            curHealth -= 50;
-            //invincible = true;
+			curHealth -= 50;
         }
         public void DamageByMeme()
         {
-            curHealth -= 25;
+			if (!cannotTakeDamage) 
+			{
+				curHealth -= 25;
+			}
         }
         public void Invincible()
         {
             if (playerMoveScript.dashing)
             {
                 invincible = true;
+				//this.gameObject.tag = "Invincible";
             }
             else
             {
                 invincible = false;
             }
         }
+
+		public void CannotTakeDamage()
+		{
+			// if cannotTakeDamage == true
+			if (cannotTakeDamage) 
+			{
+				cannotCooldown -= Time.deltaTime;
+
+				if (cannotCooldown <= 0) 
+				{
+					cannotTakeDamage = false;
+					cannotCooldown = 2;
+				}
+			}
+		}
+		// immortal mode is for when player is dark dex
+		public void ImmortalMode()
+		{
+			if (darkDexMode) 
+			{
+				cannotTakeDamage = true;
+				// make player immortal
+			} 
+		}
     }
 }

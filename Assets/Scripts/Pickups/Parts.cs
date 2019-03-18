@@ -31,7 +31,7 @@ public class Parts : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 5)
+        if (timer > 10)
         {
             Expired();
         }

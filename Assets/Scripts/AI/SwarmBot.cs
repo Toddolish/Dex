@@ -38,8 +38,6 @@ public class SwarmBot : MonoBehaviour
     #endregion
     #region Drops
     [Header("DROPS")]
-    public GameObject energyPickup;
-    public GameObject healthPickup;
     public GameObject nutPickup;
     public GameObject boltPickup;
     public GameObject goldPickup;
@@ -51,6 +49,7 @@ public class SwarmBot : MonoBehaviour
     [Header("HACKED")]
     public float forceSpeed;
     public bool modeHacked;//when in hacked mode eye will be blue therefore this enemy can now destroy other enemys
+	public bool darkDexHacked;//when in hacked from from dark dex purple form
     public float hackedTimer;
     public float hackedLength;
     bool seekTime;
@@ -59,6 +58,7 @@ public class SwarmBot : MonoBehaviour
     MeshRenderer eyeRend;
     public Material neonBlue;//eye colour when hacked by player
     public Material neonOrange;//eye colour when hunting player
+	public Material neonPurple;//eye colour for dark dex
     #endregion
 
 
@@ -82,7 +82,7 @@ public class SwarmBot : MonoBehaviour
         Explode();
         Attack();
         #endregion
-        if (modeHacked)
+		if (modeHacked && !playerStats.darkDexMode)
         {
             agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
             agent.avoidancePriority = 99;
@@ -100,6 +100,24 @@ public class SwarmBot : MonoBehaviour
                 hackedTimer = 0;
             }
         }
+		if (modeHacked && playerStats.darkDexMode)
+		{
+			agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+			agent.avoidancePriority = 99;
+			//gyroBlade.tag = ("Blade");
+			eyeRend.material = neonPurple;
+			hackedTimer += Time.deltaTime;
+			if (hackedTimer > hackedLength)
+			{
+				agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+				agent.avoidancePriority = 50;
+				//gyroBlade.tag = ("safe");
+				modeHacked = false;
+				eyeRend.material = neonOrange;
+				transform.LookAt(target);
+				hackedTimer = 0;
+			}
+		}
     }
     void OnTriggerEnter(Collider other)
     {
@@ -162,20 +180,6 @@ public class SwarmBot : MonoBehaviour
     {
         rb.AddForce(transform.forward * forceSpeed, ForceMode.Impulse);
         modeHacked = true;
-    }
-    void HealthDrop()
-    {
-        if(dropRate > 11 && dropRate < 12)
-        {
-            Instantiate(healthPickup, transform.position, transform.rotation);
-        }
-    }
-    void EnergyDrop()
-    {
-        if (dropRate > 20 && dropRate < 21)
-        {
-            Instantiate(energyPickup, transform.position, transform.rotation);
-        }
     }
     void NutDrop()
     {

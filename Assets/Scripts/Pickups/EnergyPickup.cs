@@ -33,7 +33,7 @@ public class EnergyPickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player")
         {
             FindObjectOfType<AudioManager>().Play("Pickup");
             playerStats.curEnergy += 100;
